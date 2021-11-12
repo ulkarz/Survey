@@ -10,4 +10,4 @@ let answerModel = mongoose.Schema({
     collection: "answers"
 });
 
-module.exports = mongoose.model('answers', answerModel);
+module.exports = mongoose.model('Answer', answerModel);

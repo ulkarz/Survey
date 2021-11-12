@@ -15,6 +15,7 @@
                 <tr class="d-flex">
                     <th class="text-center col-2">Name</th>
                     <th class="text-center col-2">Owner</th>
+                    <th class="text-center col-1">Survey ID</th>
                     <th class="text-center col-2">Status</th>
                     <th class="text-center col-2"></th>
                     <th class="text-center col-2"></th>
@@ -30,15 +31,15 @@
                         <td class="text-center col-2"><%= SurveyList[count].status %></td>
                          <td class="text-center col-2">
                         <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
-                        <i class="fas fa-poll"></i> Respond Survey</a>
+                        <i class="fas fa-poll"></i> Respond</a>
                         </td>
                          <td class="text-center col-2">
                         <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
-                        <i class="fas fa-pencil-alt"></i> Edit Survey</a>
+                        <i class="fas fa-pencil-alt"></i> Edit</a>
                         </td>
                         <td class="text-center col-2">
                         <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i> Delete Survey</a>
+                        <i class="fas fa-trash-alt"></i> Delete</a>
                         </td>
                     </tr>
                 <% } %>
