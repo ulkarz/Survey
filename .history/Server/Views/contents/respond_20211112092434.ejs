@@ -15,7 +15,7 @@ Description: Survey web application that has full CRUD functionality using Expre
 <%- include ('../partials/header.ejs') %>
 <%- include ('../partials/main-nav.ejs') %>
 
-
+<div class="jumbotron">
 <div class="card border-light mb-3">
   <div class="p-5 card-body">
       <div class="row g-0">
@@ -70,7 +70,9 @@ Description: Survey web application that has full CRUD functionality using Expre
                       <label for="q1" class="form-label">1. <%= survey.q1%></label>
                   </div>
                   <div>
-                    <textarea class="form-control form-control-sm" name="comments" rows="2"></textarea>
+                      <input type="radio" name="ans1"> Black
+                      <br><input type="radio" name="ans2"> Yellow
+                      <br><input type="radio" name="ans3"> Green
                   </div>
                 </div>
 
@@ -78,8 +80,10 @@ Description: Survey web application that has full CRUD functionality using Expre
                   <div>
                       <label for="" class="form-label">2. <%= survey.q2%></label>
                   </div>
-                   <div>
-                    <textarea class="form-control form-control-sm" name="comments" rows="2"></textarea>
+                  <div>
+                      <input type="radio" name="ans1">  Fall
+                      <br><input type="radio" name="ans2">  Spring
+                      <br><input type="radio" name="ans3">  Summer
                   </div>
                 </div>
 
@@ -88,7 +92,7 @@ Description: Survey web application that has full CRUD functionality using Expre
                       <label for="" class="form-label">3. <%= survey.q3%></label>
                   </div>
                   <div>
-                    <textarea class="form-control form-control-sm" name="comments" rows="2"></textarea>
+                    <textarea class="form-control form-control-sm" name="comments" rows="3"></textarea>
                   </div>
                 </div>
                
@@ -109,7 +113,7 @@ Description: Survey web application that has full CRUD functionality using Expre
   <hr class="p-3 mb-5">
 
 </div>
-
+</div>
 
   <%- include ('../partials/bottom-nav.ejs') %>
   <%- include ('../partials/footer.ejs') %>
