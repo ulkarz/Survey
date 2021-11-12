@@ -30,10 +30,7 @@ router.post('/add', (req, res, next) => {
         "name": req.body.name,
         "owner": req.body.owner,
         "surveyId": req.body.surveyId,
-        "status": req.body.status,
-        "q1": req.body.q1,
-        "q2": req.body.q2,
-        "q3": req.body.q3
+        "status": req.body.status
     });
     Survey.create(newSurvey, (err, Survey) => {
         if (err) {
