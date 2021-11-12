@@ -1,0 +1,61 @@
+<div class="card border-light mb-3">
+        <div class="pt-5 card-body">
+            <div class="row g-0">
+              <div class="col-md-12">
+                  <h5 class="display-6 mb-3"> All Surveys </h5>
+              </div>
+            </div>
+        </div>
+</div>
+
+<div class="row">
+         <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Quality</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Recommend?</th>
+                    <th class="text-center">Comments</th>
+                    <th class="text-center">Suggestions</th>
+                    <th class="text-center">Actions</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for (let count = 0; count < 10; count++) { %>
+                        <tr>
+                          <td class="text-center comments-max-width"> David </td>
+                          <td class="text-center">Very satisfied</td>
+                          <td class="text-center">Very satisfied</td>
+                          <td class="text-center">Very likely</td>
+                          <td class="text-center comments-max-width">Comments comes here from database. </td>
+                          <td class="text-center comments-max-width">Suggestions comes here from database. </td>
+
+                          <td class="text-center">
+                          <a type="button" href="/businesscontact/edit/" class="btn btn-primary btn-sm update" ><i class="fa fa-pen"></i> Edit</a>  
+                          <a type="button" href="/businesscontact/delete/id" class="btn btn-danger btn-sm delete" ><i class="fa fa-trash"></i> Delete</a>  
+                          </td>
+
+                        </tr>
+                    <% } %>
+                </tbody>
+              </table>
+
+         </div>
+
+         <div class="">
+             <a type="button" href="/survey" class="btn btn-warning btn-sm"> Go back to survey</a>
+         </div>
+
+</div>
+
+<div class="mt-5 mb-5">
+    <hr class="p-3 mb-5">
+  
+  </div>
+  
+  
+  

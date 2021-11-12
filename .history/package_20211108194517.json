@@ -1,0 +1,11 @@
+{
+  "name": "comp229-viprogrammers-survey-team-project",
+  "version": "0.0.1",
+  "description": "Survey web application that has full CRUD functionality using Express, Node.JS, MongoDB and EJS templating engine.",
+  "main": "node server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

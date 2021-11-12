@@ -1,0 +1,125 @@
+<!-- about.ejs; Syeda Maria Manzoor, 301184173, 03-Oct-2021-->
+<div class="card border-light mb-3">
+  <div class="p-5 card-body">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="/Assets/survey-1.png" class="img-fluid rounded-start survey-img" alt="..." >
+        </div>
+        <div class="col-md-8">
+            <h5 class="display-6 mb-5">Your feedback is important to us. Please fill out this form and submit.</h5>
+            <p class=""><small class="text-muted">We may publish your survey on our website</small></p>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <a type="button" class="btn btn-primary mr-4" href="/survey">Create a survey</a>
+            <a type="button" class="btn btn-success" href="/viewallsurveys">View all surveys</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+  <div class="card border-light">
+    <div class="card-body">
+      <div class="row g-0">
+        <div class="col-md-8 offset-4">
+            <form method="post" autocomplete="off">
+              <fieldset>
+                <legend>Your information</legend>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="formGroupExampleInput" class="form-label">Your name</label>
+                      <input type="text" class="form-control" name="name" placeholder="Your name" required autofocus>
+                    </div>
+
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="" class="form-label">Email</label>
+                      <input type="email" class="form-control" name="email" placeholder="Email address" required>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Complete your survey</legend>
+                <p><small>On a scale of 1 to 3 please answer these question.</small> </p>
+                <div class="row mt-5 mb-4">
+                  <div>
+                      <label for="" class="form-label">1. How satisfied you are with our product to meet your needs?</label>
+                  </div>
+                  <div>
+                      <input type="radio" name="q1"> 1. Unsatisfied
+                      <input type="radio" name="q1"> 2. Neutral
+                      <input type="radio" name="q1"> 3. Very satisfied
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                  <div>
+                      <label for="" class="form-label">2. How would you rate the value for the money of the product?</label>
+                  </div>
+                  <div>
+                      <input type="radio" name="q2"> 1. Unsatisfied
+                      <input type="radio" name="q2"> 2. Neutral
+                      <input type="radio" name="q2"> 3. Very satisfied
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                  <div>
+                      <label for="" class="form-label">3. How likely are you to recommend our company to a friend or colleague?</label>
+                  </div>
+                  <div>
+                      <input type="radio" name="q3"> 1. Not likely
+                      <input type="radio" name="q3"> 2. Neutral
+                      <input type="radio" name="q3"> 3. Very likely
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                  <div>
+                      <label for="" class="form-label">4. What would you say to someone who asked about us?</label>
+                  </div>
+                  <div>
+                    <textarea class="form-control form-control-sm" name="comments" rows="3"></textarea>
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                  <div>
+                      <label for="" class="form-label">5. What else would you like us to know?</label>
+                  </div>
+                  <div>
+                    <textarea class="form-control form-control-sm" name="suggestions" rows="3"></textarea>
+                  </div>
+                </div>
+               
+              </fieldset>
+
+
+
+              
+
+                <div class="mb-3">
+                  <button class="btn btn-primary btn-sm " id="submit" type="submit">Submit your survey</button>
+                  <a  class="btn btn-warning btn-sm" href="/" > <i class="fa fa-times"></i> Cancel</a>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="mt-5 mb-5">
+  <hr class="p-3 mb-5">
+
+</div>
+
+
