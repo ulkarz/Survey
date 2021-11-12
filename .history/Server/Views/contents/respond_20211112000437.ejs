@@ -1,17 +1,3 @@
-<!--
-File Name : index.js
-Developers:  
-Piraveen Udayakumar – 301102696
-Yonas Berhane       – 301165447
-Kyeongbin Noh       – 301130132
-Ulkar Zakaryayeva   – 301107604 
-Halim Yoo           – 301155567
-Syeda Maria         - 301184173
- 
-Date: November 10, 2021
-Description: Survey web application that has full CRUD functionality using Express, Node.JS, MongoDB and EJS templating engine.
--->
-
 <%- include ('../partials/header.ejs') %>
 <%- include ('../partials/main-nav.ejs') %>
 
@@ -70,7 +56,7 @@ Description: Survey web application that has full CRUD functionality using Expre
                       <label for="q1" class="form-label">1. <%= survey.q1%></label>
                   </div>
                   <div>
-                      <input type="radio" name="ans1"> Black
+                      <input type="radio" name="ans1"> <%= survey.surveyId.ans1%>
                       <br><input type="radio" name="ans2"> Yellow
                       <br><input type="radio" name="ans3"> Green
                   </div>
