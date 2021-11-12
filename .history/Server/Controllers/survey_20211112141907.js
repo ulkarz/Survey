@@ -16,8 +16,20 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-let DB = require('../config/db');
+let Survey = require('../models/survey');
 
-module.exports.displayHomePage = (req, res, next) => {
-    res.render('contents/home', { title: 'Home' });
+module.exports.displaySurveyList = (req, res, next) => {
+    Survey.find((err, surveyList) => {
+        if (err) {
+            return console.error(err);
+        } else {
+            // console.log(SurveyList);
+            res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList });
+        }
+
+    });
+}
+
+module.exports.displayAddPage = (req, res, next) => {
+    res.render('contents/add', { title: 'Create Survey' });
 }

@@ -35,12 +35,60 @@ router.get('/respond/:id', surveyController.displayRespondPage);
 router.post('/respond/:id', surveyController.processRespondPage);
 
 /* GET Route for displaying the Edit page - UPDATE Operation */
-router.get('/edit/:id', surveyController.displayEditPage);
+router.get('/edit/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.findById(id, (err, surveyToEdit) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // show the edit page
+            res.render('contents/edit', { title: 'Edit Survey', survey: surveyToEdit });
+        }
+    });
+});
 
 /* POST Route for processing the Edit page - UPDATE Operation */
-router.post('/edit/:id', surveyController.processEditPage);
+router.post('/edit/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    let updatedSurvey = Survey({
+        "_id": id,
+        "name": req.body.name,
+        "owner": req.body.owner,
+        "surveyId": req.body.surveyId,
+        "status": req.body.status,
+        "q1": req.body.q1,
+        "q2": req.body.q2,
+        "q3": req.body.q3
+    });
+
+    Survey.updateOne({ _id: id }, updatedSurvey, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // refresh the survey list
+            res.redirect('/survey-list');
+        }
+    });
+
+});
 
 /* GET to perform Deletion - DELETE Operation */
-router.get('/delete/:id', surveyController.performDeletion);
+router.get('/delete/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.remove({ _id: id }, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // refresh the survey list
+            res.redirect('/survey-list');
+        }
+    });
+});
 
 module.exports = router;

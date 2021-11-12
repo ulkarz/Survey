@@ -41,6 +41,18 @@ router.get('/edit/:id', surveyController.displayEditPage);
 router.post('/edit/:id', surveyController.processEditPage);
 
 /* GET to perform Deletion - DELETE Operation */
-router.get('/delete/:id', surveyController.performDeletion);
+router.get('/delete/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.remove({ _id: id }, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // refresh the survey list
+            res.redirect('/survey-list');
+        }
+    });
+});
 
 module.exports = router;

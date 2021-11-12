@@ -14,14 +14,18 @@ Description: Survey web application that has full CRUD functionality using Expre
 
 let express = require('express');
 let router = express.Router();
+let mongoose = require('mongoose');
 
-let indexController = require('../controllers/index');
+let Survey = require('../models/survey');
 
-/* GET Home page. */
-router.get('/', indexController.displayHomePage);
+module.exports.displaySurveyList = (req, res, next) => {
+    Survey.find((err, surveyList) => {
+        if (err) {
+            return console.error(err);
+        } else {
+            // console.log(SurveyList);
+            res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList });
+        }
 
-/* GET Home page. */
-router.get('/Home', indexController.displayHomePage);
-
-
-module.exports = router;
+    });
+}

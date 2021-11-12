@@ -17,11 +17,12 @@ let router = express.Router();
 
 let indexController = require('../controllers/index');
 
-/* GET Home page. */
+/* GET home page. */
 router.get('/', indexController.displayHomePage);
-
-/* GET Home page. */
-router.get('/Home', indexController.displayHomePage);
+/* GET home page. */
+router.get('/Home', function(req, res, next) {
+    res.render('contents/home', { title: 'Home' });
+});
 
 
 module.exports = router;

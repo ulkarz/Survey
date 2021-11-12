@@ -17,10 +17,9 @@ let router = express.Router();
 
 let indexController = require('../controllers/index');
 
-/* GET Home page. */
+/* GET home page. */
 router.get('/', indexController.displayHomePage);
-
-/* GET Home page. */
+/* GET home page. */
 router.get('/Home', indexController.displayHomePage);
 
 

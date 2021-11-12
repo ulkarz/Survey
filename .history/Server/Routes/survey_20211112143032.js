@@ -35,12 +35,36 @@ router.get('/respond/:id', surveyController.displayRespondPage);
 router.post('/respond/:id', surveyController.processRespondPage);
 
 /* GET Route for displaying the Edit page - UPDATE Operation */
-router.get('/edit/:id', surveyController.displayEditPage);
+router.get('/edit/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.findById(id, (err, surveyToEdit) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // show the edit page
+            res.render('contents/edit', { title: 'Edit Survey', survey: surveyToEdit });
+        }
+    });
+});
 
 /* POST Route for processing the Edit page - UPDATE Operation */
 router.post('/edit/:id', surveyController.processEditPage);
 
 /* GET to perform Deletion - DELETE Operation */
-router.get('/delete/:id', surveyController.performDeletion);
+router.get('/delete/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.remove({ _id: id }, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // refresh the survey list
+            res.redirect('/survey-list');
+        }
+    });
+});
 
 module.exports = router;

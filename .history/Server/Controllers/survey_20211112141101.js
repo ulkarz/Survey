@@ -11,17 +11,3 @@ Syeda Maria         - 301184173
 Date: November 8, 2021
 Description: Survey web application that has full CRUD functionality using Express, Node.JS, MongoDB and EJS templating engine.
 */
-
-let express = require('express');
-let router = express.Router();
-
-let indexController = require('../controllers/index');
-
-/* GET Home page. */
-router.get('/', indexController.displayHomePage);
-
-/* GET Home page. */
-router.get('/Home', indexController.displayHomePage);
-
-
-module.exports = router;
