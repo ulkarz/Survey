@@ -13,5 +13,5 @@ Description: Survey web application that has full CRUD functionality using Expre
 */
 module.exports = {
     //"URI": "mongodb://localhost/surveys_list"
-    "URI": "mongodb+srv://ulkar:dJXaoufBtKbD7qJM@mongodbserver.ttslr.mongodb.net/surveys_list?retryWrites=true&w=majority"
+    "URI": "mongodb+srv://ulkar:dJXaoufBtKbD7qJM@mongodbserver.ttslr.mongodb.net/surveys_list?retryWrites=true&w=majority";
 }
