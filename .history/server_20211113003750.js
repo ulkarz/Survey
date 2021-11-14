@@ -1,3 +1,4 @@
+const server = http.createServer(process.env.PORT || 3000);
 let createError = require('http-errors');
 let app = require('./Server/Config/app');
 let debug = require('debug')('comp229-viprogrammers-survey-team-project');

@@ -1,3 +1,4 @@
+const server = http.createServer(process.env.PORT || 3000);
 let createError = require('http-errors');
 let app = require('./Server/Config/app');
 let debug = require('debug')('comp229-viprogrammers-survey-team-project');
@@ -7,7 +8,7 @@ let http = require('http');
  * Get port from environment and store in Express.
  */
 
-let port = normalizePort(process.env.PORT || '3000');
+//let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
