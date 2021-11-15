@@ -15,7 +15,7 @@ Description: Survey web application that has full CRUD functionality using Expre
 let express = require('express');
 let router = express.Router();
 
-let indexController = require('../Controllers/index');
+let indexController = require('../controllers/index');
 
 /* GET Home page. */
 router.get('/', indexController.displayHomePage);

@@ -17,7 +17,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // connect to the Survey Model
-let surveyController = require('../Controllers/survey');
+let surveyController = require('../controllers/survey');
 
 /* GET Route for the Survey List page - READ Operation */
 router.get('/', surveyController.displaySurveyList);

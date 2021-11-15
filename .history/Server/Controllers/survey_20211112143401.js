@@ -16,7 +16,7 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-let Survey = require('../Models/survey');
+let Survey = require('../models/survey');
 
 module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
