@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light nav-text">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="/Assets/logo.png" class="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+
+                <% if((title=="Home") || (title=="/")){ %>
+                    <li class="nav-item active">
+                        <a class="nav-link active" aria-current="page" href="/"><i class="fa fa-home"></i> HOME</a>
+                        <% } else { %>
+                            <li class="nav-item ">
+                                <a class="nav-link" aria-current="page" href="/"><i class="fa fa-home"></i> HOME</a>
+                                <% } %>
+                            </li>
+
+                            <% if(title=="Create Survey"){%>
+                                <li class="nav-item active">
+                                    <a class="nav-link active" aria-current="page" href="/survey-list/add"><i class="fa fa-book"></i> Create Survey</a>
+                                    <% } else { %>
+                                        <li class="nav-item ">
+                                            <a class="nav-link" aria-current="page" href="/survey-list/add"><i class="fa fa-book"></i> Create Survey</a>
+                                            <% } %>
+                                        </li>
+
+                                        <% if(title=="Survey List"){%>
+                                            <li class="nav-item active">
+                                                <a class="nav-link active" aria-current="page" href="/survey-list"><i class="fa fa-book-open"></i> Survey List</a>
+                                                <% } else { %>
+                                                    <li class="nav-item ">
+                                                        <a class="nav-link" aria-current="page" href="/survey-list"><i class="fa fa-book-open"></i> Survey List</a>
+                                                        <% } %>
+                                                    </li>
+
+                                                    <% if(title=="Login"){%>
+                                                        <li class="nav-item active">
+                                                            <a class="nav-link active" aria-current="page" href="/"><i class="fa fa-user display-8"></i></a>
+                                                            <% } else { %>
+                                                                <li class="nav-item ">
+                                                                    <a class="nav-link" aria-current="page" href="/"><i class="fa fa-user display-8"></i></a>
+                                                                    <% } %>
+                                                                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
