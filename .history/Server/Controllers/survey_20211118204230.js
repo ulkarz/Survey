@@ -22,8 +22,7 @@ module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
         if (err) {
             return console.error(err);
-        } 
-        else {
+        } else {
             // console.log(SurveyList);
             res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList, displayName: req.user ? req.user.displayName: '' });
         }
@@ -32,7 +31,7 @@ module.exports.displaySurveyList = (req, res, next) => {
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('contents/add', { title: 'Create Survey', displayName: req.user ? req.user.displayName: ''  });
+    res.render('contents/add', { title: 'Create Survey' });
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -83,7 +82,7 @@ module.exports.displayEditPage = (req, res, next) => {
             res.end(err);
         } else {
             // show the edit page
-            res.render('contents/edit', { title: 'Edit Survey', survey: surveyToEdit, displayName: req.user ? req.user.displayName: '' });
+            res.render('contents/edit', { title: 'Edit Survey', survey: surveyToEdit });
         }
     });
 }
