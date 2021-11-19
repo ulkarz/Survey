@@ -1,0 +1,27 @@
+body{
+    font-size: .9em;
+}
+
+.logo{
+    width: 60px;
+    height: auto;
+}
+
+.testimonial-image{
+    width: 340px;
+    height: auto;
+}
+
+.survey-img{
+    width: 300px;
+    height: auto;
+}
+
+.nav-text{
+    font-size: .8em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comments-max-width{
+    max-width: 150px;
+}

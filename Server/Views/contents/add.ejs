@@ -1,0 +1,67 @@
+<!--
+File Name : index.js
+Developers:  
+Piraveen Udayakumar – 301102696
+Yonas Berhane       – 301165447
+Kyeongbin Noh       – 301130132
+Ulkar Zakaryayeva   – 301107604 
+Halim Yoo           – 301155567
+Syeda Maria         - 301184173
+ 
+Date: November 10, 2021
+Description: Survey web application that has full CRUD functionality using Express, Node.JS, MongoDB and EJS templating engine.
+-->
+
+<%- include ('../partials/header.ejs') %>
+    <%- include ('../partials/main-nav.ejs') %>
+
+        <!-- Content for the Add page -->
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <h1>
+                        <%= title %>
+                    </h1>
+
+                    <form class="form" method="POST">
+                        <div class="form-group">
+                            <label for="nameTextField">Name</label>
+                            <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Survey Name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ownerTextField">Owner</label>
+                            <input type="text" class="form-control" id="ownerTextField" placeholder="Enter the Owner's Name" name="owner" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="statusTextField">Status</label>
+                            <input type="text" class="form-control" id="statusTextField" placeholder="Enter the Survey Status" name="status" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="q1TextField">Question 1</label>
+                            <input type="text" class="form-control" id="q1TextField" placeholder="Enter the first question" name="q1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="q2TextField">Question 2</label>
+                            <input type="text" class="form-control" id="q2TextField" placeholder="Enter the second question" name="q2" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="q3TextField">Question 3</label>
+                            <input type="text" class="form-control" id="q3TextField" placeholder="Enter the third question" name="q3" required>
+                            <br>
+                            <button type="submit" class="btn btn-primary">
+<i class="fas fa-edit"></i>Submit</button>
+
+                            <a href="/survey-list" class="btn btn-warning">
+                                <i class="fas fa-undo"></i>Cancel</a>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <%- include ('../partials/bottom-nav.ejs') %>
+                <%- include ('../partials/footer.ejs') %>
