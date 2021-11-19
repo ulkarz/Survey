@@ -12,6 +12,7 @@ Date: November 8, 2021
 Description: Survey web application that has full CRUD functionality using Express, Node.JS, MongoDB and EJS templating engine.
 */
 
+<<<<<<< HEAD
 let express = require("express");
 let router = express.Router();
 
@@ -40,3 +41,18 @@ router.get('/logout', indexController.performLogout);
  
 
 module.exports = router;
+=======
+let express = require('express');
+let router = express.Router();
+
+let indexController = require('../Controllers/index');
+
+/* GET Home page. */
+router.get('/', indexController.displayHomePage);
+
+/* GET Home page. */
+router.get('/Home', indexController.displayHomePage);
+
+
+module.exports = router;
+>>>>>>> 6bc8ac1ce254be855e00643619a106f3ee159a49

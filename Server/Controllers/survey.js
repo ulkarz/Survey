@@ -22,17 +22,27 @@ module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
         if (err) {
             return console.error(err);
+<<<<<<< HEAD
         } 
         else {
             // console.log(SurveyList);
             res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList, displayName: req.user ? req.user.displayName: '' });
+=======
+        } else {
+            // console.log(SurveyList);
+            res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList });
+>>>>>>> 6bc8ac1ce254be855e00643619a106f3ee159a49
         }
 
     });
 }
 
 module.exports.displayAddPage = (req, res, next) => {
+<<<<<<< HEAD
     res.render('contents/add', { title: 'Create Survey', displayName: req.user ? req.user.displayName: ''  });
+=======
+    res.render('contents/add', { title: 'Create Survey' });
+>>>>>>> 6bc8ac1ce254be855e00643619a106f3ee159a49
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -83,7 +93,11 @@ module.exports.displayEditPage = (req, res, next) => {
             res.end(err);
         } else {
             // show the edit page
+<<<<<<< HEAD
             res.render('contents/edit', { title: 'Edit Survey', survey: surveyToEdit, displayName: req.user ? req.user.displayName: '' });
+=======
+            res.render('contents/edit', { title: 'Edit Survey', survey: surveyToEdit });
+>>>>>>> 6bc8ac1ce254be855e00643619a106f3ee159a49
         }
     });
 }
