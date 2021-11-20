@@ -122,7 +122,7 @@ module.exports.performDeletion = (req, res, next) => {
             res.end(err);
         } else {
             // refresh the survey list
-            res.redirect('/survey-list');
+            res.redirect('/survey-list', { displayName: req.user ? req.user.displayName: '' });
         }
     });
 }
