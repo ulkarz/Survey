@@ -38,11 +38,25 @@ module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "name": req.body.name,
         "owner": req.body.owner,
+        "startDate": req.body.startDate,
+        "endDate": req.body.endDate,
         "surveyId": req.body.surveyId,
         "status": req.body.status,
         "q1": req.body.q1,
+        "q1ans1": req.body.q1ans1,
+        "q1ans2": req.body.q1ans2,
+        "q1ans3": req.body.q1ans3,
+        "q1ans4": req.body.q1ans4,
         "q2": req.body.q2,
-        "q3": req.body.q3
+        "q2ans1": req.body.q2ans1,
+        "q2ans2": req.body.q2ans2,
+        "q2ans3": req.body.q2ans3,
+        "q2ans4": req.body.q2ans4,
+        "q3": req.body.q3,
+        "q3ans1": req.body.q3ans1,
+        "q3ans2": req.body.q3ans2,
+        "q3ans3": req.body.q3ans3,
+        "q3ans4": req.body.q3ans4
     });
     Survey.create(newSurvey, (err, Survey) => {
         if (err) {
@@ -94,11 +108,25 @@ module.exports.processEditPage = (req, res, next) => {
         "_id": id,
         "name": req.body.name,
         "owner": req.body.owner,
+        "startDate": req.body.startDate,
+        "endDate": req.body.endDate,
         "surveyId": req.body.surveyId,
         "status": req.body.status,
         "q1": req.body.q1,
+        "q1ans1": req.body.q1ans1,
+        "q1ans2": req.body.q1ans2,
+        "q1ans3": req.body.q1ans3,
+        "q1ans4": req.body.q1ans4,
         "q2": req.body.q2,
-        "q3": req.body.q3
+        "q2ans1": req.body.q2ans1,
+        "q2ans2": req.body.q2ans2,
+        "q2ans3": req.body.q2ans3,
+        "q2ans4": req.body.q2ans4,
+        "q3": req.body.q3,
+        "q3ans1": req.body.q3ans1,
+        "q3ans2": req.body.q3ans2,
+        "q3ans3": req.body.q3ans3,
+        "q3ans4": req.body.q3ans4
     });
 
     Survey.updateOne({ _id: id }, updatedSurvey, (err) => {
