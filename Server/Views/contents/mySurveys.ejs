@@ -1,0 +1,67 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main-nav.ejs') %>
+        <!-- Main Content -->
+        <main class="container">
+            <div class="row">
+                <div class="offset-md-1 col-md-10">
+                    <h1>
+                        <%= title %>
+                    </h1>
+                    <a href="/survey-list/add" class="btn btn-primary" role="button">
+                        <i class="fas fa-plus-circle"></i> Create Survey</a>
+                    <br>
+                    <table class="table table-bordered table-striped table-hover">
+                        <!-- Header Row-->
+                        <tr class="d-flex">
+                            <% if(typeof displayName == 'string' && displayName) { %>
+                                <th class="text-center col-1">Name</th>
+                                <th class="text-center col-2">Start Date</th>
+                                <th class="text-center col-2">End Date</th>
+                                <th class="text-center col-1">Owner</th>
+                                <th class="text-center col-6">Actions</th>
+                            <% } else { %>
+                                <th class="text-center col-1">Name</th>
+                                <th class="text-center col-2">Start Date</th>
+                                <th class="text-center col-2">End Date</th>
+                                <th class="text-center col-1">Owner</th>
+                                <th class="text-center col-6">Actions</th>
+                            <% } %>
+                        </tr>
+
+                        <!-- Repeatable Template Row -->
+
+                        <% for(let count = 0; count < MySurveys.length; count++) { %>
+                            <tr class="d-flex">
+                                    <td class="text-center col-1">
+                                        <%= MySurveys[count].name %>
+                                    </td>
+                                    <td class="text-center col-2">
+                                        Starts from <%= MySurveys[count].startDate.toISOString().split('T')[0] %>
+                                    </td>
+                                    <td class="text-center col-2">
+                                       Available until <%= MySurveys[count].endDate.toISOString().split('T')[0] %>
+                                    </td>
+                                     <td class="text-center col-1">
+                                        <%= MySurveys[count].owner %>
+                                    </td>
+                                    <td class="text-center col-2">
+                                        <a href="/survey-list/respond/<%= MySurveys[count]._id %>" class="btn btn-secondary btn-sm">
+                                        <i class="fas fa-poll"></i> Respond Survey</a>
+                                    </td>
+                                    <td class="text-center col-2">
+                                        <a href="/survey-list/edit/<%= MySurveys[count]._id %>" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-pencil-alt"></i> Edit Survey</a>
+                                    </td>
+                                    <td class="text-center col-2">
+                                        <a href="/survey-list/delete/<%= MySurveys[count]._id %>" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i> Delete Survey</a>
+                                    </td>
+                            </tr>
+                        <% } %>
+                    </table>
+                </div>
+            </div>
+        </main><br><br>
+
+        <%- include ('../partials/bottom-nav.ejs') %>
+        <%- include ('../partials/footer.ejs') %>
