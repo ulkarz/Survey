@@ -29,14 +29,16 @@ Description: Survey web application that has full CRUD functionality using Expre
                         <tr class="d-flex">
                             <% if(typeof displayName == 'string' && displayName) { %>
                                 <th class="text-center col-2">Name</th>
+                                <th class="text-center col-2">Start Date</th>
+                                <th class="text-center col-2">End Date</th>
                                 <th class="text-center col-2">Owner</th>
-                                <th class="text-center col-2">Status</th>
                                 <th class="text-center col-6">Actions</th>
                             <% } else { %>
-                                <th class="text-center col-3">Name</th>
-                                <th class="text-center col-3">Owner</th>
-                                <th class="text-center col-3">Status</th>
-                                <th class="text-center col-3">Actions</th>
+                                <th class="text-center col-2">Name</th>
+                                <th class="text-center col-2">Start Date</th>
+                                <th class="text-center col-2">End Date</th>
+                                <th class="text-center col-2">Owner</th>
+                                <th class="text-center col-4">Actions</th>
                             <% } %>
                         </tr>
 
@@ -49,10 +51,13 @@ Description: Survey web application that has full CRUD functionality using Expre
                                         <%= SurveyList[count].name %>
                                     </td>
                                     <td class="text-center col-2">
-                                        <%= SurveyList[count].owner %>
+                                        Starts from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
                                     </td>
                                     <td class="text-center col-2">
-                                        <%= SurveyList[count].status %>
+                                       Available until <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
+                                    </td>
+                                     <td class="text-center col-2">
+                                        <%= SurveyList[count].owner %>
                                     </td>
                                     <td class="text-center col-2">
                                         <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
@@ -67,14 +72,17 @@ Description: Survey web application that has full CRUD functionality using Expre
                                         <i class="fas fa-trash-alt"></i> Delete Survey</a>
                                     </td>
                                 <% } else { %>
-                                    <td class="text-center col-3">
+                                    <td class="text-center col-2">
                                         <%= SurveyList[count].name %>
                                     </td>
-                                    <td class="text-center col-3">
-                                        <%= SurveyList[count].owner %>
+                                    <td class="text-center col-2">
+                                       Starts from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
                                     </td>
-                                    <td class="text-center col-3">
-                                        <%= SurveyList[count].status %>
+                                    <td class="text-center col-2">
+                                        Available until <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
+                                    </td>
+                                     <td class="text-center col-2">
+                                        <%= SurveyList[count].owner %>
                                     </td>
                                     <td class="text-center col-3">
                                         <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
@@ -86,7 +94,7 @@ Description: Survey web application that has full CRUD functionality using Expre
                     </table>
                 </div>
             </div>
-        </main>
+        </main><br><br>
 
         <%- include ('../partials/bottom-nav.ejs') %>
         <%- include ('../partials/footer.ejs') %>
