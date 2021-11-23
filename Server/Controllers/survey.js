@@ -29,7 +29,7 @@ module.exports.displaySurveyList = (req, res, next) => {
         } else {
 
             let currentDate = new Date();
-            console.log(surveyList);
+            //console.log(surveyList);
             res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList, displayName: req.user ? req.user.displayName : '', today: currentDate });
 
         }
@@ -47,7 +47,7 @@ module.exports.displayMySurveyList = (req, res, next) => {
             return console.error(err);
         } 
         else {
-            console.log(mySurveys);
+            //console.log(mySurveys);
             res.render('contents/mySurveys', { title: 'My Survey List', user: req.user, owner: user, MySurveys: mySurveys, displayName: req.user ? req.user.displayName: '' });
         }
     });
@@ -162,7 +162,7 @@ module.exports.processEditPage = (req, res, next) => {
             res.end(err);
         } else {
             // refresh the survey list
-            res.redirect('/survey-list');
+            res.redirect('/survey-list/mySurveys');
         }
     });
 }
@@ -176,7 +176,7 @@ module.exports.performDeletion = (req, res, next) => {
             res.end(err);
         } else {
             // refresh the survey list
-            res.redirect('/survey-list');
+            res.redirect('/survey-list/mySurveys');
         }
     });
 }
