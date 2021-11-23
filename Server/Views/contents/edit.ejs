@@ -41,7 +41,7 @@ Description: Survey web application that has full CRUD functionality using Expre
               </div>
 
               <div class="form-group col-md-3 mb-1">
-                <label  for="endDate">Survey End Date</label>
+                <label for="endDate">End Date</label>
                 <input type="date" class="" id=""
                 placeholder="yyyy-mm-dd" name="endDate" value="<%= survey.endDate.toISOString().substr(0, 10) %>"  required>
               </div>
@@ -121,7 +121,7 @@ Description: Survey web application that has full CRUD functionality using Expre
                         </div>
                         
                         <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</button>
-                        <a href="/survey-list" class="btn btn-warning">
+                        <a href="/survey-list/mySurveys" class="btn btn-warning">
                             <i class="fas fa-undo"></i>Cancel</a>
                             <br><br><br><br><br>
                     </form>
