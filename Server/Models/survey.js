@@ -18,6 +18,12 @@ let mongoose = require('mongoose');
 let surveyModel = mongoose.Schema({
     name: String,
     owner: String,
+    user: 
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+
+    },
     startDate: Date,
     endDate: Date,
     status: String,

@@ -17,7 +17,9 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 let Survey = require('../Models/survey');
+let user = require("../Models/user");
 
+//Displays all Surveys 
 module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
         if (err) {
@@ -34,6 +36,22 @@ module.exports.displaySurveyList = (req, res, next) => {
 
     });
 }
+
+// Displays ONLY Surveys created by the Survey Owner (Renders to the new MySurveys page)
+
+module.exports.displayMySurveyList = (req, res, next) => {
+
+    // find surveys associated with the same user id created in the Users collection
+    Survey.find({user: req.user},(err, mySurveys) => {
+        if (err) {
+            return console.error(err);
+        } 
+        else {
+            res.render('contents/mySurveys', { title: 'My Survey List', user: req.user, owner: user, MySurveys: mySurveys, displayName: req.user ? req.user.displayName: '' });
+        }
+    });
+}
+
 
 module.exports.displayAddPage = (req, res, next) => {
     res.render('contents/add', { title: 'Create Survey', displayName: req.user ? req.user.displayName : '' });
