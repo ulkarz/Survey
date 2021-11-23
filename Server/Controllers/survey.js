@@ -17,7 +17,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 let Survey = require('../Models/survey');
-let user = require("../Models/user");
+let user = require('../Models/user');
 
 //Displays all Surveys 
 module.exports.displaySurveyList = (req, res, next) => {
@@ -65,6 +65,7 @@ module.exports.processAddPage = (req, res, next) => {
         "owner": req.body.owner,
         "startDate": req.body.startDate,
         "endDate": req.body.endDate,
+        user: req.user,
         "surveyId": req.body.surveyId,
         "status": req.body.status,
         "q1": req.body.q1,

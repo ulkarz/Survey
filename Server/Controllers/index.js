@@ -54,7 +54,7 @@ module.exports.processingLoginPage = (req, res, next) => {
       if (err) {
         return next(err);
       }
-      return res.redirect("/survey-list");
+      return res.redirect("/survey-list/mySurveys");
     });
   })(req, res, next);
 };
@@ -102,7 +102,7 @@ module.exports.processingRegisterPage = (req, res, next) => {
       // redirect the user and authenticate them
 
       return passport.authenticate("local")(req, res, () => {
-        res.redirect("/survey-list");
+        res.redirect("/survey-list/mySurveys");
       });
     }
   });
