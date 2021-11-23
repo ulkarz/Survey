@@ -17,7 +17,9 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 let Survey = require('../Models/survey');
+let user = require('../Models/user');
 
+//Displays all Surveys 
 module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
         if (err) {
@@ -27,13 +29,30 @@ module.exports.displaySurveyList = (req, res, next) => {
         } else {
 
             let currentDate = new Date();
-            // console.log(SurveyList);
+            //console.log(surveyList);
             res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList, displayName: req.user ? req.user.displayName : '', today: currentDate });
 
         }
 
     });
 }
+
+// Displays ONLY Surveys created by the Survey Owner (Renders to the new MySurveys page)
+
+module.exports.displayMySurveyList = (req, res, next) => {
+
+    // find surveys associated with the same user id created in the Users collection
+    Survey.find({user: req.user},(err, mySurveys) => {
+        if (err) {
+            return console.error(err);
+        } 
+        else {
+            //console.log(mySurveys);
+            res.render('contents/mySurveys', { title: 'My Survey List', user: req.user, owner: user, MySurveys: mySurveys, displayName: req.user ? req.user.displayName: '' });
+        }
+    });
+}
+
 
 module.exports.displayAddPage = (req, res, next) => {
     res.render('contents/add', { title: 'Create Survey', displayName: req.user ? req.user.displayName : '' });
@@ -47,6 +66,7 @@ module.exports.processAddPage = (req, res, next) => {
         "owner": req.body.owner,
         "startDate": req.body.startDate,
         "endDate": req.body.endDate,
+        user: req.user,
         "surveyId": req.body.surveyId,
         "status": req.body.status,
         "q1": req.body.q1,
@@ -71,7 +91,7 @@ module.exports.processAddPage = (req, res, next) => {
             res.end(err);
         } else {
             // refresh the survey list
-            res.redirect('/survey-list');
+            res.redirect('/survey-list/mySurveys');
         }
     });
 }
@@ -90,8 +110,29 @@ module.exports.displayRespondPage = (req, res, next) => {
     });
 }
 
+// Mongoose $push function will be used to append our survey responses values to an array. 
+// Each response will be added to the array as a string and each survey will have its own array of responses.
+
 module.exports.processRespondPage = (req, res, next) => {
-    let id = req.params.id;
+    Survey.updateOne(
+        {_id: req.params.id},
+        {$push:
+            {
+                response1: [req.body.response1],
+                response2: [req.body.response2],
+                response3: [req.body.response3],
+            }
+        },(err) => {
+           if (err)
+           {
+            console.log(err);
+            res.end(err);
+        } 
+        else 
+        {
+            res.redirect('/survey-list/');
+        }
+    });
 }
 
 module.exports.displayEditPage = (req, res, next) => {
@@ -142,7 +183,7 @@ module.exports.processEditPage = (req, res, next) => {
             res.end(err);
         } else {
             // refresh the survey list
-            res.redirect('/survey-list');
+            res.redirect('/survey-list/mySurveys');
         }
     });
 }
@@ -156,7 +197,7 @@ module.exports.performDeletion = (req, res, next) => {
             res.end(err);
         } else {
             // refresh the survey list
-            res.redirect('/survey-list');
+            res.redirect('/survey-list/mySurveys');
         }
     });
 }

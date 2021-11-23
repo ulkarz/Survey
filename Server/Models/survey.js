@@ -18,6 +18,12 @@ let mongoose = require('mongoose');
 let surveyModel = mongoose.Schema({
     name: String,
     owner: String,
+    user: 
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+
+    },
     startDate: Date,
     endDate: Date,
     status: String,
@@ -35,7 +41,10 @@ let surveyModel = mongoose.Schema({
     q3ans1: String,
     q3ans2: String,
     q3ans3: String,
-    q3ans4: String
+    q3ans4: String, 
+    response1: [String],
+    response2: [String],
+    response3: [String],
 }, {
     collection: "surveys"
 });
