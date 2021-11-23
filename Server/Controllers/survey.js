@@ -110,8 +110,29 @@ module.exports.displayRespondPage = (req, res, next) => {
     });
 }
 
+// Mongoose $push function will be used to append our survey responses values to an array. 
+// Each response will be added to the array as a string and each survey will have its own array of responses.
+
 module.exports.processRespondPage = (req, res, next) => {
-    let id = req.params.id;
+    Survey.updateOne(
+        {_id: req.params.id},
+        {$push:
+            {
+                response1: [req.body.response1],
+                response2: [req.body.response2],
+                response3: [req.body.response3],
+            }
+        },(err) => {
+           if (err)
+           {
+            console.log(err);
+            res.end(err);
+        } 
+        else 
+        {
+            res.redirect('/survey-list/');
+        }
+    });
 }
 
 module.exports.displayEditPage = (req, res, next) => {

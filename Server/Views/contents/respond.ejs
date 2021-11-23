@@ -44,24 +44,6 @@ Description: Survey web application that has full CRUD functionality using Expre
                 <div class="row g-0">
                     <div class="col-md-8 offset-4">
                         <form method="post" autocomplete="off">
-                            <fieldset>
-                                <legend>Your information</legend>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-3">
-                                            <label for="formGroupExampleInput" class="form-label">Your name</label>
-                                            <input type="text" class="form-control" name="name" placeholder="Your name" required autofocus>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="mb-3">
-                                            <label for="" class="form-label">Email</label>
-                                            <input type="email" class="form-control" name="email" placeholder="Email address" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
 
                             <fieldset>
                                 <legend>Complete your survey</legend>
@@ -70,10 +52,10 @@ Description: Survey web application that has full CRUD functionality using Expre
                                         <label for="q1" class="form-label">1. <%= survey.q1%></label>
                                     </div>
                                    <div>
-                                        <input type="radio" name="q1"> <%= survey.q1ans1%><br>
-                                        <input type="radio" name="q1"> <%= survey.q1ans2%><br>
-                                        <input type="radio" name="q1"> <%= survey.q1ans3%><br>
-                                        <input type="radio" name="q1"> <%= survey.q1ans4%><br>
+                                        <input type="radio" name="response1" value="<%= survey.q1ans1%>"> <%= survey.q1ans1%><br>
+                                        <input type="radio" name="response1" value="<%= survey.q1ans2%>"> <%= survey.q1ans2%><br>
+                                        <input type="radio" name="response1" value="<%= survey.q1ans3%>"> <%= survey.q1ans3%><br>
+                                        <input type="radio" name="response1" value="<%= survey.q1ans4%>"> <%= survey.q1ans4%><br>
                                     </div>
                                 </div>
 
@@ -82,10 +64,10 @@ Description: Survey web application that has full CRUD functionality using Expre
                                         <label for="q2" class="form-label">2. <%= survey.q2%></label>
                                     </div>
                                    <div>
-                                        <input type="radio" name="q2"> <%= survey.q2ans1%><br>
-                                        <input type="radio" name="q2"> <%= survey.q2ans2%><br>
-                                        <input type="radio" name="q2"> <%= survey.q2ans3%><br>
-                                        <input type="radio" name="q2"> <%= survey.q2ans4%><br>
+                                        <input type="radio" name="response2" value="<%= survey.q2ans1%>"> <%= survey.q2ans1%><br>
+                                        <input type="radio" name="response2" value="<%= survey.q2ans2%>"> <%= survey.q2ans2%><br>
+                                        <input type="radio" name="response2" value="<%= survey.q2ans3%>"> <%= survey.q2ans3%><br>
+                                        <input type="radio" name="response2" value="<%= survey.q2ans4%>"> <%= survey.q2ans4%><br>
                                     </div>
                                 </div>
 
@@ -94,17 +76,17 @@ Description: Survey web application that has full CRUD functionality using Expre
                                         <label for="q3" class="form-label">3. <%= survey.q3%></label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="q3"> <%= survey.q3ans1%><br>
-                                        <input type="radio" name="q3"> <%= survey.q3ans2%><br>
-                                        <input type="radio" name="q3"> <%= survey.q3ans3%><br>
-                                        <input type="radio" name="q3"> <%= survey.q3ans4%><br>
+                                        <input type="radio" name="response3" value="<%= survey.q3ans1%>"> <%= survey.q3ans1%><br>
+                                        <input type="radio" name="response3" value="<%= survey.q3ans2%>"> <%= survey.q3ans2%><br>
+                                        <input type="radio" name="response3" value="<%= survey.q3ans3%>"> <%= survey.q3ans3%><br>
+                                        <input type="radio" name="response3" value="<%= survey.q3ans4%>"> <%= survey.q3ans4%><br>
                                     </div>
                                 </div>
 
                             </fieldset>
 
                             <div class="mb-3">
-                                <button class="btn btn-primary btn-sm " id="submit" type="submit"><i class="fas fa-edit"></i>Submit your survey</button>
+                                <button onclick= "f" class="btn btn-primary btn-sm " id="submit" type="submit"><i class="fas fa-edit"></i>Submit your survey</button>
                                 <a class="btn btn-warning btn-sm" href="/"> <i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </form>
