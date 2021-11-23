@@ -45,11 +45,6 @@ Description: Survey web application that has full CRUD functionality using Expre
                 <input type="date" class="" id=""
                 placeholder="yyyy-mm-dd" name="endDate" value="<%= survey.endDate.toISOString().substr(0, 10) %>"  required>
               </div>
-                        
-                        <div class="form-group">
-                            <label for="statusTextField">Status</label>
-                            <input type="text" class="form-control" id="statusTextField" placeholder="Enter the Survey Status" name="status" value="<%= survey.status%>" required>
-                        </div>
 
                         <div class="form-group mb-1">
                             <label for="q1TextField">Question 1</label>

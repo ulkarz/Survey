@@ -35,10 +35,10 @@ Description: Survey web application that has full CRUD functionality using Expre
                                 <th class="text-center col-6">Actions</th>
                             <% } else { %>
                                 <th class="text-center col-2">Name</th>
-                                <th class="text-center col-2">Start Date</th>
-                                <th class="text-center col-2">End Date</th>
+                                <th class="text-center col-3">Start Date</th>
+                                <th class="text-center col-3">End Date</th>
                                 <th class="text-center col-2">Owner</th>
-                                <th class="text-center col-4">Actions</th>
+                                <th class="text-center col-2">Actions</th>
                             <% } %>
                         </tr>
 
@@ -75,16 +75,16 @@ Description: Survey web application that has full CRUD functionality using Expre
                                     <td class="text-center col-2">
                                         <%= SurveyList[count].name %>
                                     </td>
-                                    <td class="text-center col-2">
+                                    <td class="text-center col-3">
                                        Starts from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
                                     </td>
-                                    <td class="text-center col-2">
+                                    <td class="text-center col-3">
                                         Available until <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
                                     </td>
                                      <td class="text-center col-2">
                                         <%= SurveyList[count].owner %>
                                     </td>
-                                    <td class="text-center col-3">
+                                    <td class="text-center col-2">
                                         <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
                                         <i class="fas fa-poll"></i> Respond Survey</a>
                                     </td>
