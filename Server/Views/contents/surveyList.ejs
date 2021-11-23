@@ -27,46 +27,17 @@ Description: Survey web application that has full CRUD functionality using Expre
                     <table class="table table-bordered table-striped table-hover">
                         <!-- Header Row-->
                         <tr class="d-flex">
-                            <% if(typeof displayName == 'string' && displayName) { %>
-                                <th class="text-center col-2">Name</th>
-                                <th class="text-center col-2">Owner</th>
-                                <th class="text-center col-2">Status</th>
-                                <th class="text-center col-6">Actions</th>
-                            <% } else { %>
                                 <th class="text-center col-3">Name</th>
                                 <th class="text-center col-3">Owner</th>
                                 <th class="text-center col-3">Status</th>
                                 <th class="text-center col-3">Actions</th>
-                            <% } %>
                         </tr>
 
                         <!-- Repeatable Template Row -->
 
                         <% for(let count = 0; count < SurveyList.length; count++) { %>
                             <tr class="d-flex">
-                                <% if(typeof displayName == 'string' && displayName) { %>
-                                    <td class="text-center col-2">
-                                        <%= SurveyList[count].name %>
-                                    </td>
-                                    <td class="text-center col-2">
-                                        <%= SurveyList[count].owner %>
-                                    </td>
-                                    <td class="text-center col-2">
-                                        <%= SurveyList[count].status %>
-                                    </td>
-                                    <td class="text-center col-2">
-                                        <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-poll"></i> Respond Survey</a>
-                                    </td>
-                                    <td class="text-center col-2">
-                                        <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-pencil-alt"></i> Edit Survey</a>
-                                    </td>
-                                    <td class="text-center col-2">
-                                        <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash-alt"></i> Delete Survey</a>
-                                    </td>
-                                <% } else { %>
+                   
                                     <td class="text-center col-3">
                                         <%= SurveyList[count].name %>
                                     </td>
@@ -80,7 +51,6 @@ Description: Survey web application that has full CRUD functionality using Expre
                                         <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
                                         <i class="fas fa-poll"></i> Respond Survey</a>
                                     </td>
-                                <% } %>
                             </tr>
                         <% } %>
                     </table>
