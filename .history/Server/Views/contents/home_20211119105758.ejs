@@ -1,0 +1,121 @@
+<!--
+File Name : index.js
+Developers:  
+Piraveen Udayakumar – 301102696
+Yonas Berhane       – 301165447
+Kyeongbin Noh       – 301130132
+Ulkar Zakaryayeva   – 301107604 
+Halim Yoo           – 301155567
+Syeda Maria         - 301184173
+ 
+Date: November 10, 2021
+Description: Survey web application that has full CRUD functionality using Express, Node.JS, MongoDB and EJS templating engine.
+-->
+
+<%- include ('../partials/header.ejs') %>
+    <%- include ('../partials/main-nav.ejs') %>
+
+        <div class="card border-light mb-3" style="background-color:#253842; min-height: 400px;">
+            <div class="p-5 card-body text-white">
+                <div class="row g-0">
+
+                    <div class="col-md-8">
+                        <h5 class="display-6 mb-3">Welcome</h5>
+                        <p class="">Welcome to our customer satisfaction survey website. Here you will be able to create your satisfaction survey, view them, update a survey or you can delete it. </p>
+                        <p>Please follow the link below to create your survey</p>
+                        <p class=""><small class="text-muted">Your survey helps us improve our customer service</small></p>
+                        <div class="mt-5 ">
+                            <a href="/survey-list/add" class="btn btn-info">Create your survey</a>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/Assets/survey-1.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card border-light mb-3 mt-5">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h1 class="card-title">TESTIMONIALS</h1>
+                        <p class="card-text">This is what some of customers have to say about our service.</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card border-light mb-3 mt-5">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="/Assets/silva.png" class="img-fluid rounded-start testimonial-image" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i></h5>
+                        <p class="card-text"><small class="text-muted">Silva, silva fashion</small></p>
+                        <p class="card-text">VIProgrammers has done a marvelous job redesiging our clothing store. Now we have more than 100 visitors on our online store. The new site experiences increased our monthly sale from $10,000 to $30,000.</p>
+                        <p class="card-text">We have already signed a new contract with VIProgrammers to build our back office solution.</p>
+                        <p class="card-text">We highly recommend working with VIProgrammers. </p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-light mb-3 mt-5">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body  text-right">
+                        <h5 class="card-title"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i></h5>
+                        <p class="card-text"><small class="text-muted">Dawson, patpet pet store</small></p>
+                        <p class="card-text">As a pet store, we never had an online presence to showcase our work. VIProgrammers approached us to have a website that will show our company profile and services we provide at our pet store.</p>
+                        <p class="card-text">At first we were hesitating to go online since we didn't have the experiece about tech. Since we began our website, our business increased a lot. </p>
+                        <p class="card-text">Thank you VIProgrammers. We really appreciate your work and will certainly hire you for our next project </p>
+
+
+                        <p class="card-text"><small class="text-muted">Last updated 13 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="/Assets/dawson.png" class="img-fluid rounded-start testimonial-image" alt="...">
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="card border-light mb-3 mt-5">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="/Assets/david.png" class="img-fluid rounded-start testimonial-image" alt="...">
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star-half"></i></h5>
+                        <p class="card-text"><small class="text-muted">David, garage store</small></p>
+                        <p class="card-text">VIProgrammers are the best. Highly recommend their service</p>
+                        <p class="card-text"><small class="text-muted">Last updated 20 mins ago</small></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="mt-5 mb-5">
+            <hr class="p-3 mb-5">
+        </div>
+
+        <%- include ('../partials/bottom-nav.ejs') %>
+            <%- include ('../partials/footer.ejs') %>
