@@ -18,8 +18,8 @@ let mongoose = require('mongoose');
 let surveyModel = mongoose.Schema({
     name: String,
     owner: String,
-    startDate: String,
-    endDate: String,
+    startDate: Date,
+    endDate: Date,
     status: String,
     q1: String,
     q1ans1: String,

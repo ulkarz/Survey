@@ -23,8 +23,10 @@ module.exports.displaySurveyList = (req, res, next) => {
         if (err) {
             return console.error(err);
         } else {
+
+            let currentDate = new Date();
             // console.log(SurveyList);
-            res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList });
+            res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList, today: currentDate });
         }
 
     });
@@ -35,6 +37,8 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
+    let currentDate = new Date();
+
     let newSurvey = Survey({
         "name": req.body.name,
         "owner": req.body.owner,

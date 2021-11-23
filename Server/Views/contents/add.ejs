@@ -34,15 +34,29 @@ Description: Survey web application that has full CRUD functionality using Expre
                             <input type="text" class="form-control" id="ownerTextField" placeholder="Enter the Owner's Name" name="owner" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="startDateTextField">Start Date</label>
-                            <input type="text" class="form-control" id="startDateTextField" placeholder="" name="startDate" required>
-                        </div>
+                        <script>
+                $("date").on("change", function() {
+                    this.setAttribute(
+                        "data-date",
+                        moment(this.value, "YYYY-MM-DD").local().
+                        .format( this.getAttribute("data-date-format") )
+                    )
+                }).trigger("change")
+              </script>
 
-                        <div class="form-group">
-                            <label for="endDateTextField">End Date</label>
-                            <input type="text" class="form-control" id="endtDateTextField" placeholder="" name="endDate" required>
-                        </div>
+              <!--placeholder="Survey start date"-->  
+              <div class="form-group col-md-3">
+                <label for="startDate">Start Date</label>
+                <input type="date" class="date" id=""
+                placeholder="yyyy-mm-dd" name="startDate" value=""  required data-date="">
+              </div>
+
+              
+              <div class="form-group col-md-3">
+                <label for="endDate">End Date</label>
+                <input type="date" class="date" id=""
+                placeholder="yyyy-mm-dd" name="endDate" value=""  required>
+              </div>
                         
                         <div class="form-group">
                             <label for="statusTextField">Status</label>
