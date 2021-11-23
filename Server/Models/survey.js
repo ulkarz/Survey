@@ -26,7 +26,6 @@ let surveyModel = mongoose.Schema({
     },
     startDate: Date,
     endDate: Date,
-    status: String,
     q1: String,
     q1ans1: String,
     q1ans2: String,
