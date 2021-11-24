@@ -16,12 +16,13 @@ let express = require("express");
 let router = express.Router();
 
 let indexController = require("../Controllers/index");
+let surveyController = require("../Controllers/survey");
 
 /* GET Home page. */
-router.get("/", indexController.displayHomePage);
+router.get("/", indexController.displaySurveyList);
 
 /* GET Home page. */
-router.get("/Home", indexController.displayHomePage);
+router.get("/Home", indexController.displaySurveyList);
 
 /* GET Route for displaying the Login Page */
 router.get("/login", indexController.displayLoginPage);
