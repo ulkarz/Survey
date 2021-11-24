@@ -21,11 +21,29 @@ let DB = require("../Config/db");
 
 //create the User Model instance
 let userModel = require("../Models/user");
+let Survey = require('../Models/survey');
 let User = userModel.User; //alias
 
 module.exports.displayHomePage = (req, res, next) => {
   res.render("contents/home", { title: "Home", displayName: req.user ? req.user.displayName: ''});
 };
+
+//Displays all Surveys on Home Page (renders home page with survey functions)
+module.exports.displaySurveyList = (req, res, next) => {
+  Survey.find((err, surveyList) => {
+      if (err) {
+          return console.error(err);
+
+      } else {
+
+          let currentDate = new Date();
+          //console.log(surveyList);
+          res.render('contents/home', { title: 'Home', SurveyList: surveyList, displayName: req.user ? req.user.displayName : '', today: currentDate });
+
+      }
+
+  });
+}
 
 module.exports.displayLoginPage = (req, res, next) => {
   //check if the user is already logged in
