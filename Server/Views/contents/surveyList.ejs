@@ -41,10 +41,16 @@ Description: Survey web application that has full CRUD functionality using Expre
                                     <td class="text-center col-2">
                                         <%= SurveyList[count].name %>
                                     </td>
+                                    <% if (SurveyList[count].startDate < Date.now()) {%>
+                                    <td class="text-center col-3">
+                                        Started from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
+                                    </td>
+                                    <% }%>
+                                    <% if (SurveyList[count].startDate > Date.now()) {%>
                                     <td class="text-center col-3">
                                         Starts from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
                                     </td>
-
+                                    <% }%>
                                     <% if (SurveyList[count].endDate < Date.now()) {%>
 
                                     <td class="text-center col-3">

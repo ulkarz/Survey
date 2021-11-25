@@ -106,7 +106,7 @@ module.exports.displayRespondPage = (req, res, next) => {
 
     Survey.findById(id, (err, surveyToRespond) => {
 
-        if (surveyToRespond.endDate < Date.now()) {
+        if (surveyToRespond.endDate < Date.now() || surveyToRespond.startDate > Date.now()) {
             res.redirect('/survey-list/');
 
         } else {
