@@ -34,6 +34,7 @@ module.exports.displaySurveyList = (req, res, next) => {
             res.render('contents/surveyList', {
                 title: 'Survey List',
                 SurveyList: surveyList,
+                messages: req.flash('surveyInactive'),
                 displayName: req.user ? req.user.displayName : '',
                 today: currentDate
             });
@@ -107,6 +108,7 @@ module.exports.displayRespondPage = (req, res, next) => {
     Survey.findById(id, (err, surveyToRespond) => {
 
         if (surveyToRespond.endDate < Date.now() || surveyToRespond.startDate > Date.now()) {
+            req.flash('surveyInactive', 'Survey Unavailable! Please choose another survey that is active.');
             res.redirect('/survey-list/');
 
         } else {
