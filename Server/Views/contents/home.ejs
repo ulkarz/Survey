@@ -14,6 +14,8 @@ Description: Survey web application that has full CRUD functionality using Expre
 
 <%- include ('../partials/header.ejs') %>
     <%- include ('../partials/main-nav.ejs') %>
+    <main class="container">
+    <div class=jumbotron></div>
 
         <div class="card border-light mb-3" style="background-color:#253842; min-height: 400px;">
             <div class="p-5 card-body text-white">
@@ -41,6 +43,54 @@ Description: Survey web application that has full CRUD functionality using Expre
 
         <div class="card border-light mb-3 mt-5">
             <div class="row g-0">
+
+       <!-- Main Content -->
+        <main class="container">
+            <div class="row">
+                <div class="offset-md-1 col-md-10">
+                    <h1>
+                        Survey List
+                    </h1>
+                    <br>
+                    <table class="table table-bordered table-striped table-hover">
+                        <!-- Header Row-->
+                        <tr class="d-flex">
+                                <th class="text-center col-2">Name</th>
+                                <th class="text-center col-3">Start Date</th>
+                                <th class="text-center col-3">End Date</th>
+                                <th class="text-center col-1">Owner</th>
+                                <th class="text-center col-3">Actions</th>
+                        </tr>
+
+                        <!-- Repeatable Template Row -->
+
+                        <% for(let count = 0; count < SurveyList.length; count++) { %>
+                            <tr class="d-flex">
+                                    <td class="text-center col-2">
+                                        <%= SurveyList[count].name %>
+                                    </td>
+                                    <td class="text-center col-3">
+                                        Starts from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
+                                    </td>
+                                    <td class="text-center col-3">
+                                       Available until <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
+                                    </td>
+                                     <td class="text-center col-1">
+                                        <%= SurveyList[count].owner %>
+                                    </td>
+                                    <td class="text-center col-3">
+                                        <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
+                                        <i class="fas fa-poll"></i> Respond Survey</a>
+                                    </td>
+                            </tr>
+                        <% } %>
+                    </table>
+                </div>
+            </div>
+        </main><br><br>
+
+        <div class="card border-light mb-3 mt-5">
+            <div class="row g-0 mt-5">
                 <div class="col-md-12">
                     <div class="card-body">
                         <h1 class="card-title">TESTIMONIALS</h1>
@@ -110,7 +160,9 @@ Description: Survey web application that has full CRUD functionality using Expre
         </div>
         <div class="mt-5 mb-5">
             <hr class="p-3 mb-5">
-        </div>
+            </div>
+            </div>
+        
 
         <%- include ('../partials/bottom-nav.ejs') %>
             <%- include ('../partials/footer.ejs') %>
