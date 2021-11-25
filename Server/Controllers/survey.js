@@ -17,6 +17,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 let Survey = require('../Models/survey');
+let Answer = require('../Models/answers');
 let user = require('../Models/user');
 
 //Displays all Surveys 
@@ -30,7 +31,12 @@ module.exports.displaySurveyList = (req, res, next) => {
 
             let currentDate = new Date();
             //console.log(surveyList);
-            res.render('contents/surveyList', { title: 'Survey List', SurveyList: surveyList, displayName: req.user ? req.user.displayName : '', today: currentDate });
+            res.render('contents/surveyList', {
+                title: 'Survey List',
+                SurveyList: surveyList,
+                displayName: req.user ? req.user.displayName : '',
+                today: currentDate
+            });
 
         }
 
@@ -42,13 +48,12 @@ module.exports.displaySurveyList = (req, res, next) => {
 module.exports.displayMySurveyList = (req, res, next) => {
 
     // find surveys associated with the same user id created in the Users collection
-    Survey.find({user: req.user},(err, mySurveys) => {
+    Survey.find({ user: req.user }, (err, mySurveys) => {
         if (err) {
             return console.error(err);
-        } 
-        else {
+        } else {
             //console.log(mySurveys);
-            res.render('contents/mySurveys', { title: 'My Survey List', user: req.user, owner: user, MySurveys: mySurveys, displayName: req.user ? req.user.displayName: '' });
+            res.render('contents/mySurveys', { title: 'My Survey List', user: req.user, owner: user, MySurveys: mySurveys, displayName: req.user ? req.user.displayName : '' });
         }
     });
 }
@@ -100,12 +105,18 @@ module.exports.displayRespondPage = (req, res, next) => {
     let id = req.params.id;
 
     Survey.findById(id, (err, surveyToRespond) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
+
+        if (surveyToRespond.endDate < Date.now()) {
+            res.redirect('/survey-list/');
+
         } else {
-            // show the edit page
-            res.render('contents/respond', { title: 'Take Survey', survey: surveyToRespond });
+            if (err) {
+                console.log(err);
+                res.end(err);
+            } else {
+                // show the edit page
+                res.render('contents/respond', { title: 'Take Survey', survey: surveyToRespond });
+            }
         }
     });
 }
@@ -114,22 +125,18 @@ module.exports.displayRespondPage = (req, res, next) => {
 // Each response will be added to the array as a string and each survey will have its own array of responses.
 
 module.exports.processRespondPage = (req, res, next) => {
-    Survey.updateOne(
-        {_id: req.params.id},
-        {$push:
-            {
-                response1: [req.body.response1],
-                response2: [req.body.response2],
-                response3: [req.body.response3],
-            }
-        },(err) => {
-           if (err)
-           {
+
+    Survey.updateOne({ _id: req.params.id }, {
+        $push: {
+            response1: [req.body.response1],
+            response2: [req.body.response2],
+            response3: [req.body.response3],
+        }
+    }, (err) => {
+        if (err) {
             console.log(err);
             res.end(err);
-        } 
-        else 
-        {
+        } else {
             res.redirect('/survey-list/');
         }
     });

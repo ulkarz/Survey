@@ -11,15 +11,14 @@ Syeda Maria         - 301184173
 Date: November 8, 2021
 Description: Survey web application that has full CRUD functionality using Express, Node.JS, MongoDB and EJS templating engine.
 */
-
+const { ObjectId } = require('mongoose');
 let mongoose = require('mongoose');
 
 // create a model class
 let surveyModel = mongoose.Schema({
     name: String,
     owner: String,
-    user: 
-    {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
 
@@ -40,7 +39,7 @@ let surveyModel = mongoose.Schema({
     q3ans1: String,
     q3ans2: String,
     q3ans3: String,
-    q3ans4: String, 
+    q3ans4: String,
     response1: [String],
     response2: [String],
     response3: [String],

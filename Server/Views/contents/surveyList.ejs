@@ -44,9 +44,18 @@ Description: Survey web application that has full CRUD functionality using Expre
                                     <td class="text-center col-3">
                                         Starts from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
                                     </td>
+
+                                    <% if (SurveyList[count].endDate < Date.now()) {%>
+
+                                    <td class="text-center col-3">
+                                       Survey expired <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
+                                    </td>
+                                    <% }%>
+                                    <% if (SurveyList[count].endDate >= Date.now()) {%>
                                     <td class="text-center col-3">
                                        Available until <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
                                     </td>
+                                    <%}%>
                                      <td class="text-center col-1">
                                         <%= SurveyList[count].owner %>
                                     </td>
