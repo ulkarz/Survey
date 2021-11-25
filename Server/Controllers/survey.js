@@ -108,7 +108,6 @@ module.exports.displayRespondPage = (req, res, next) => {
 
         if (surveyToRespond.endDate < Date.now() || surveyToRespond.startDate > Date.now()) {
             res.redirect('/survey-list/');
-
         } else {
             if (err) {
                 console.log(err);
