@@ -39,8 +39,8 @@ Description: Survey web application that has full CRUD functionality using Expre
                                 <th class="text-center col-2">Name</th>
                                 <th class="text-center col-3">Start Date</th>
                                 <th class="text-center col-3">End Date</th>
-                                <th class="text-center col-1">Owner</th>
-                                <th class="text-center col-3">Actions</th>
+                                <th class="text-center col-2">Owner</th>
+                                <th class="text-center col-2">Action</th>
                         </tr>
 
                         <!-- Repeatable Template Row -->
@@ -71,10 +71,10 @@ Description: Survey web application that has full CRUD functionality using Expre
                                        Available until <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
                                     </td>
                                     <%}%>
-                                     <td class="text-center col-1">
+                                     <td class="text-center col-2">
                                         <%= SurveyList[count].owner %>
                                     </td>
-                                    <td class="text-center col-3">
+                                    <td class="text-center col-2">
                                         <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
                                         <i class="fas fa-poll"></i> Respond Survey</a>
                                     </td>

@@ -111,7 +111,6 @@ module.exports.displayRespondPage = (req, res, next) => {
         if (surveyToRespond.endDate < Date.now() || surveyToRespond.startDate > Date.now()) {
             req.flash('surveyInactive', 'Survey Unavailable! Please choose another survey that is active.');
             res.redirect('/survey-list/');
-
         } else {
             if (err) {
                 console.log(err);
