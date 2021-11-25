@@ -34,6 +34,8 @@ module.exports.displaySurveyList = (req, res, next) => {
             res.render('contents/surveyList', {
                 title: 'Survey List',
                 SurveyList: surveyList,
+                messages: req.flash('surveyInactive'),
+                responseSaved: req.flash('responseSaved'),
                 displayName: req.user ? req.user.displayName : '',
                 today: currentDate
             });
@@ -107,6 +109,7 @@ module.exports.displayRespondPage = (req, res, next) => {
     Survey.findById(id, (err, surveyToRespond) => {
 
         if (surveyToRespond.endDate < Date.now() || surveyToRespond.startDate > Date.now()) {
+            req.flash('surveyInactive', 'Survey Unavailable! Please choose another survey that is active.');
             res.redirect('/survey-list/');
 
         } else {
@@ -115,7 +118,7 @@ module.exports.displayRespondPage = (req, res, next) => {
                 res.end(err);
             } else {
                 // show the edit page
-                res.render('contents/respond', { title: 'Take Survey', survey: surveyToRespond });
+                res.render('contents/respond', { title: 'Take Survey', responseSaved: req.flash('responseSaved'), survey: surveyToRespond });
             }
         }
     });
@@ -137,6 +140,7 @@ module.exports.processRespondPage = (req, res, next) => {
             console.log(err);
             res.end(err);
         } else {
+            req.flash('responseSaved', 'Your response was saved, Thank You!');
             res.redirect('/survey-list/');
         }
     });
