@@ -23,14 +23,8 @@ let surveyModel = mongoose.Schema({
         ref: "User"
 
     },
-    startDate: {
-        type: Date,
-        default: Date.now
-    },
-    endDate: {
-        type: Date,
-        default: Date.now
-    },
+    startDate: Date,
+    endDate: Date,
     q1: String,
     q1ans1: String,
     q1ans2: String,

@@ -35,28 +35,62 @@ Description: Survey web application that has full CRUD functionality using Expre
                         </div>
 
                         <script>
-                $("date").on("change", function() {
-                    this.setAttribute(
-                        "data-date",
-                        moment(this.value, "YYYY-MM-DD").local().
-                        .format( this.getAttribute("data-date-format") )
-                    )
-                }).trigger("change")
-              </script>
+                            $("date").on("change", function() {
+                            this.setAttribute(
+                            "data-date",
+                            moment(this.value, "YYYY-MM-DD").local().
+                            .format( this.getAttribute("data-date-format") )
+                            )
+                            }).trigger("change")
 
+                        </script>
+
+                        
+
+              
               <!--placeholder="Survey start date"-->  
               <div class="form-group col-md-3">
                 <label for="startDate">Start Date</label>
-                <input type="date" class="date" id=""
+                <input type="date" id="startDate"
                 placeholder="yyyy-mm-dd" name="startDate" value=""  required data-date="">
-              </div>
+                    <script>
+                            let startDate = new Date();
+                            let sDate = startDate.getDate();
+                            let sMonth = startDate.getMonth() +1;
+                            if(sDate < 10){
+                                sDate = '0' + sDate;
+                            }
+                            if(sMonth < 10){
+                                sMonth = '0' + sMonth;
+                            }
+                            let sYear = startDate.getUTCFullYear();
+                            let minDate = sYear + "-" + sMonth + "-" + sDate;
+                            document.getElementById("startDate").setAttribute('min', minDate);
+                            console.log(minDate);
+                            </script>
+                            </div>
 
               
               <div class="form-group col-md-3">
                 <label for="endDate">End Date</label>
-                <input type="date" class="date" id=""
-                placeholder="yyyy-mm-dd" name="endDate" value="" required>
-              </div>
+                <input type="date" id="endDate"
+                placeholder="yyyy-mm-dd" name="endDate" value="" required data-date="">
+                <script>
+                            let endDate = new Date();
+                            let eDate = endDate.getDate();
+                            let eMonth = endDate.getMonth() +1;
+                            if(eDate < 10){
+                                eDate = '0' + cDate;
+                            }
+                            if(eMonth < 10){
+                                eMonth = '0' + Month;
+                            }
+                            let eYear = endDate.getUTCFullYear();
+                            let mDate = eYear + "-" + eMonth + "-" + eDate;
+                            document.getElementById("endDate").setAttribute('min', mDate);
+                            console.log(mDate);
+                            </script>
+                            </div>
                         
                         <div class="form-group mb-1">
                             <label for="q1TextField">Question 1</label>

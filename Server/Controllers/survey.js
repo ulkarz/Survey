@@ -75,7 +75,6 @@ module.exports.processAddPage = (req, res, next) => {
         "endDate": req.body.endDate,
         user: req.user,
         "surveyId": req.body.surveyId,
-        "status": req.body.status,
         "q1": req.body.q1,
         "q1ans1": req.body.q1ans1,
         "q1ans2": req.body.q1ans2,
@@ -109,7 +108,9 @@ module.exports.displayRespondPage = (req, res, next) => {
     Survey.findById(id, (err, surveyToRespond) => {
 
         if (surveyToRespond.endDate < Date.now() || surveyToRespond.startDate > Date.now()) {
+
             req.flash('surveyInactive', 'Survey Unavailable! Please choose another survey that is active.');
+
             res.redirect('/survey-list/');
         } else {
             if (err) {

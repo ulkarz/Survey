@@ -35,16 +35,46 @@ Description: Survey web application that has full CRUD functionality using Expre
                         </div>
 
                         <div class="form-group col-md-3 mb-1">
-                <label for="startDate"> Start Date</label>
-                <input type="date" class="" id=""
-                placeholder="yyyy-mm-dd" name="startDate" value="<%= survey.startDate.toISOString().substr(0, 10) %>"  required>
-              </div>
+                            <label for="startDate"> Start Date</label>
+                            <input type="date" class="" id="startDate" 
+                            placeholder="yyyy-mm-dd" name="startDate" value="<%= survey.startDate.toISOString().substr(0, 10) %>"  required>
+                            <script>
+                            let startDate = new Date();
+                            let sDate = startDate.getDate();
+                            let sMonth = startDate.getMonth() +1;
+                            if(sDate < 10){
+                                sDate = '0' + sDate;
+                            }
+                            if(sMonth < 10){
+                                sMonth = '0' + sMonth;
+                            }
+                            let sYear = startDate.getUTCFullYear();
+                            let minDate = sYear + "-" + sMonth + "-" + sDate;
+                            document.getElementById("startDate").setAttribute('min', minDate);
+                            console.log(minDate);
+                            </script>
+                        </div>
 
-              <div class="form-group col-md-3 mb-1">
-                <label for="endDate">End Date</label>
-                <input type="date" class="" id=""
-                placeholder="yyyy-mm-dd" name="endDate" value="<%= survey.endDate.toISOString().substr(0, 10) %>"  required>
-              </div>
+                        <div class="form-group col-md-3 mb-1">
+                            <label for="endDate">End Date</label>
+                            <input type="date" class="" id="endDate" 
+                            placeholder="yyyy-mm-dd" name="endDate" value="<%= survey.endDate.toISOString().substr(0, 10) %>"  required>
+                            <script>
+                            let endDate = new Date();
+                            let eDate = endDate.getDate();
+                            let eMonth = endDate.getMonth() +1;
+                            if(eDate < 10){
+                                eDate = '0' + cDate;
+                            }
+                            if(eMonth < 10){
+                                eMonth = '0' + Month;
+                            }
+                            let eYear = endDate.getUTCFullYear();
+                            let mDate = eYear + "-" + eMonth + "-" + eDate;
+                            document.getElementById("endDate").setAttribute('min', mDate);
+                            console.log(mDate);
+                            </script>
+                        </div>
 
                         <div class="form-group mb-1">
                             <label for="q1TextField">Question 1</label>
