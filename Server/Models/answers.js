@@ -1,5 +1,5 @@
 /*
-File Name : index.js
+File Name : answers.js
 Developers:  
 Piraveen Udayakumar – 301102696
 Yonas Berhane       – 301165447
