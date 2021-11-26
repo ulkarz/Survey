@@ -16,6 +16,15 @@ Description: Survey web application that has full CRUD functionality using Expre
 <%- include ('../partials/main-nav.ejs') %>
         <!-- Main Content -->
         <main class="container">
+        <!-- Message Area -->
+
+  <% if(messages.length > 0) {%>
+  <div class="alert alert-danger"> <%=messages%></div>
+  <% } %>
+
+  <% if(responseSaved.length > 0) {%>
+  <div class="alert alert-success"> <%=responseSaved%></div>
+  <% } %>
             <div class="row">
                 <div class="offset-md-1 col-md-10">
                     <h1>
