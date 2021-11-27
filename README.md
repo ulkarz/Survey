@@ -2,7 +2,7 @@
 - - -
 ## DESCRIPTION 
 Our project's name is VIProgrammers.
-Basically, it's a customer satisfaction survey website. User can create the satisfaction survey, view them, update a survey or delete it.
+Basically, it's a Survey Factory website. If you choose to create an account with us, you will be able to create your own surveys and publish it. Any user is allowed to answer to any active survey and account holders can track their responses.
 - - -
 ## Prerequisite
 Please install node_modules for running our application
