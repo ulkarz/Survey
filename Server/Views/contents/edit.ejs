@@ -144,7 +144,17 @@ Description: Survey web application that has full CRUD functionality using Expre
                             <input type="text" class="form-control" id="q3ans4TextField" placeholder="Fourth Option" name="q3ans4" value="<%= survey.q3ans4%>" required>
                         </div>
                         </div>
+
+                        <div class="form-group mb-1">
+                            <label for="q4TextField">Question 4</label>
+                            <input type="text" class="form-control" id="q4TextField" placeholder="Enter the fourth question" name="q4" value="<%= survey.q4%>" required>
+                        </div>
                         
+                        <div class="form-group mb-1">
+                            <label for="q5TextField">Question 5</label>
+                            <input type="text" class="form-control" id="q5TextField" placeholder="Enter the fifth question" name="q5" value="<%= survey.q5%>" required>
+                        </div>
+
                         <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</button>
                         <a href="/survey-list/mySurveys" class="btn btn-warning">
                             <i class="fas fa-undo"></i>Cancel</a>

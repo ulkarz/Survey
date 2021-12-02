@@ -17,7 +17,7 @@ let mongoose = require('mongoose');
 // create a model class
 let answerModel = mongoose.Schema({
     surveyId: ObjectId,
-    user: {
+    survey: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Survey"
     },
