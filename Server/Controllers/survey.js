@@ -90,7 +90,9 @@ module.exports.processAddPage = (req, res, next) => {
         "q3ans1": req.body.q3ans1,
         "q3ans2": req.body.q3ans2,
         "q3ans3": req.body.q3ans3,
-        "q3ans4": req.body.q3ans4
+        "q3ans4": req.body.q3ans4,
+        "q4": req.body.q4,
+        "q5": req.body.q5
     });
     Survey.create(newSurvey, (err, Survey) => {
         if (err) {
@@ -136,6 +138,8 @@ module.exports.processRespondPage = (req, res, next) => {
             response1: [req.body.response1],
             response2: [req.body.response2],
             response3: [req.body.response3],
+            response4: [req.body.response4],
+            response5: [req.body.response5]
         },
 
     }, (err) => {
@@ -186,7 +190,9 @@ module.exports.processEditPage = (req, res, next) => {
         "q3ans1": req.body.q3ans1,
         "q3ans2": req.body.q3ans2,
         "q3ans3": req.body.q3ans3,
-        "q3ans4": req.body.q3ans4
+        "q3ans4": req.body.q3ans4,
+        "q4": req.body.q4,
+        "q5": req.body.q5
     });
 
     Survey.updateOne({ _id: id }, updatedSurvey, (err) => {

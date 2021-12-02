@@ -40,9 +40,13 @@ let surveyModel = mongoose.Schema({
     q3ans2: String,
     q3ans3: String,
     q3ans4: String,
+    q4: String,
+    q5: String,
     response1: [String],
     response2: [String],
     response3: [String],
+    response4: [String],
+    response5: [String]
 }, {
     collection: "surveys"
 });
