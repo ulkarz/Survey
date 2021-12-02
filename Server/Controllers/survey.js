@@ -66,15 +66,16 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
+
     let currentDate = new Date();
 
     let newSurvey = Survey({
+
         "name": req.body.name,
         "owner": req.body.owner,
         "startDate": req.body.startDate,
         "endDate": req.body.endDate,
         user: req.user,
-        "surveyId": req.body.surveyId,
         "q1": req.body.q1,
         "q1ans1": req.body.q1ans1,
         "q1ans2": req.body.q1ans2,
@@ -102,6 +103,7 @@ module.exports.processAddPage = (req, res, next) => {
     });
 }
 
+
 module.exports.displayRespondPage = (req, res, next) => {
     let id = req.params.id;
 
@@ -128,13 +130,14 @@ module.exports.displayRespondPage = (req, res, next) => {
 // Each response will be added to the array as a string and each survey will have its own array of responses.
 
 module.exports.processRespondPage = (req, res, next) => {
-
+    let id = req.params.id;
     Survey.updateOne({ _id: req.params.id }, {
         $push: {
             response1: [req.body.response1],
             response2: [req.body.response2],
             response3: [req.body.response3],
-        }
+        },
+
     }, (err) => {
         if (err) {
             console.log(err);
@@ -169,8 +172,6 @@ module.exports.processEditPage = (req, res, next) => {
         "owner": req.body.owner,
         "startDate": req.body.startDate,
         "endDate": req.body.endDate,
-        "surveyId": req.body.surveyId,
-        "status": req.body.status,
         "q1": req.body.q1,
         "q1ans1": req.body.q1ans1,
         "q1ans2": req.body.q1ans2,
