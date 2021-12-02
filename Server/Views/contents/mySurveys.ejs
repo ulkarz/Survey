@@ -32,14 +32,16 @@ Description: Survey web application that has full CRUD functionality using Expre
                                 <th class="text-center col-2">Name</th>
                                 <th class="text-center col-2">Start Date</th>
                                 <th class="text-center col-2">End Date</th>
-                                <th class="text-center col-2">Owner</th>
-                                <th class="text-center col-4">Actions</th>
+                                <th class="text-center col-1">Owner</th>
+                                <th class="text-center col-2">Number of Responses</th>
+                                <th class="text-center col-3">Actions</th>
                             <% } else { %>
                                 <th class="text-center col-2">Name</th>
                                 <th class="text-center col-2">Start Date</th>
                                 <th class="text-center col-2">End Date</th>
-                                <th class="text-center col-2">Owner</th>
-                                <th class="text-center col-4">Actions</th>
+                                <th class="text-center col-1">Owner</th>
+                                <th class="text-center col-2">Number of Responses </th>
+                                <th class="text-center col-3">Actions</th>
                             <% } %>
                         </tr>
 
@@ -71,15 +73,22 @@ Description: Survey web application that has full CRUD functionality using Expre
                                        Available until <%= MySurveys[count].endDate.toISOString().split('T')[0] %>
                                     </td>
                                     <%}%>
-                                     <td class="text-center col-2">
+                                     <td class="text-center col-1">
                                         <%= MySurveys[count].owner %>
                                     </td>
-                                    
                                     <td class="text-center col-2">
-                                        <a href="/survey-list/edit/<%= MySurveys[count]._id %>" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-pencil-alt"></i> Edit Survey</a>
+                                        <%= MySurveys[count].response1.length %>
                                     </td>
-                                    <td class="text-center col-2">
+                                     <td class="text-center col-1">
+                                        <!-- href="/survey-list/statistics/<%= MySurveys[count]._id %>" --> <a  class="btn btn-success btn-sm"> 
+                                        <i class="fas fa-chart-bar"></i> Statistics</a>
+                                    </td>
+                                    
+                                    <td class="text-center col-1">
+                                        <a href="/survey-list/edit/<%= MySurveys[count]._id %>" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-pencil-alt"></i> <br>Edit Survey</a>
+                                    </td>
+                                    <td class="text-center col-1">
                                         <a href="/survey-list/delete/<%= MySurveys[count]._id %>" class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash-alt"></i> Delete Survey</a>
                                     </td>
