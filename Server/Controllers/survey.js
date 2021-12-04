@@ -198,9 +198,9 @@ module.exports.displaySurveyReport=(req, res, next) => {
                 }else{
                     Survey.aggregate([{$unwind: "$response5"},
             {$group: {_id: {id: "$_id", response_5: "$response5"}, rf_5: {$sum: 1}}},
-            {$group: { _id: "$_id.id",response_rf_5: {$push:{response_5: "$_id.response_5", rf4: "$rf_5"}}}},
+            {$group: { _id: "$_id.id",response_rf_5: {$push:{response_5: "$_id.response_5", rf5: "$rf_5"}}}},
             {$merge:"surveys"}],
-            (err,aggregatedData4) => {
+            (err,aggregatedData5) => {
                 if (err) {
                     console.log(err);
                     res.end(err);
@@ -208,7 +208,7 @@ module.exports.displaySurveyReport=(req, res, next) => {
                   Survey.findById(id, (err, report) => {
                       //report.forEach(report => {
                       console.log(report);
-                  res.render('contents/report', { title: 'Report', Report: report});
+                  res.render('contents/report', { title: 'Report', Report: report, displayName: req.user ? req.user.displayName : '',});
   
           });
       }
