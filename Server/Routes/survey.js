@@ -54,4 +54,7 @@ router.get("/delete/:id",requireAuth, surveyController.performDeletion);
 /* GET Route for displaying My Surveys page */
 router.get("/mySurveys", requireAuth, surveyController.displayMySurveyList);
 
+/* GET Route for displaying Survey Statistics - READ Operation */
+router.get("/report/:id",requireAuth, surveyController.displaySurveyReport );
+
 module.exports = router;

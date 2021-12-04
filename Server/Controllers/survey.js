@@ -152,6 +152,70 @@ module.exports.processRespondPage = (req, res, next) => {
         }
     });
 }
+module.exports.displaySurveyReport=(req, res, next) => {
+   
+    let id = req.params.id;
+    //5 aggregations to unwind array, group and count each individual responses frequency (rf) from arrays. 
+    //Aggregation pipeline operators are used and new data from calculation is merged to collections
+    Survey.aggregate([{$unwind: "$response1"},
+         //count 
+         {$group: {_id: {id: "$_id", response_1: "$response1"}, rf_1: {$sum: 1}}},
+         //build array
+         {$group: { _id: "$_id.id",response_rf_1: {$push:{response_1: "$_id.response_1", rf1: "$rf_1"}}}},
+        // merged the new array with calculated response frequencys into survey collection 
+      {$merge:"surveys"}],
+      (err,aggregatedData1) => {
+          if (err) {
+              console.log(err);
+              res.end(err);
+          }else{
+              Survey.aggregate([{$unwind: "$response2"},
+      {$group: {_id: {id: "$_id", response_2: "$response2"}, rf_2: {$sum: 1}}},
+      {$group: { _id: "$_id.id",response_rf_2: {$push:{response_2: "$_id.response_2", rf2: "$rf_2"}}}},
+      {$merge:"surveys"}],
+      (err,aggregatedData2) => {
+          if (err) {
+              console.log(err);
+              res.end(err);
+          }else{
+              Survey.aggregate([{$unwind: "$response3"},
+      {$group: {_id: {id: "$_id", response_3: "$response3"}, rf_3: {$sum: 1}}},
+      {$group: { _id: "$_id.id",response_rf_3: {$push:{response_3: "$_id.response_3", rf3: "$rf_3"}}}},
+      {$merge:"surveys"}],
+      (err,aggregatedData3) => {
+          if (err) {
+              console.log(err);
+              res.end(err);
+          }else{
+              Survey.aggregate([{$unwind: "$response4"},
+            {$group: {_id: {id: "$_id", response_4: "$response4"}, rf_4: {$sum: 1}}},
+            {$group: { _id: "$_id.id",response_rf_4: {$push:{response_4: "$_id.response_4", rf4: "$rf_4"}}}},
+            {$merge:"surveys"}],
+            (err,aggregatedData4) => {
+                if (err) {
+                    console.log(err);
+                    res.end(err);
+                }else{
+                    Survey.aggregate([{$unwind: "$response5"},
+            {$group: {_id: {id: "$_id", response_5: "$response5"}, rf_5: {$sum: 1}}},
+            {$group: { _id: "$_id.id",response_rf_5: {$push:{response_5: "$_id.response_5", rf5: "$rf_5"}}}},
+            {$merge:"surveys"}],
+            (err,aggregatedData5) => {
+                if (err) {
+                    console.log(err);
+                    res.end(err);
+                }else{
+                  Survey.findById(id, (err, report) => {
+                      //report.forEach(report => {
+                      console.log(report);
+                  res.render('contents/report', { title: 'Report', Report: report, displayName: req.user ? req.user.displayName : '',});
+  
+          });
+      }
+  })}})}})
+  }})
+}})
+}
 
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;

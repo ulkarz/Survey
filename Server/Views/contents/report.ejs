@@ -1,0 +1,124 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main-nav.ejs') %>
+        <!-- Main Content -->
+        <div class="container">
+
+        <div class="d-flex justify-content-center">
+        <h1>Survey Name: <%= Report.name %> </h1> 
+        </div>
+        
+  <div class="row align-items-start">
+    <div class="col">
+    <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+    <h3> Question 1: <%= Report.q1 %> </h3>
+    <th scope ="col">Response</th>
+    <th scope = "col">Number of Responses</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <% for (let i=0; i<Report.response_rf_1.length; i++) {%>
+    <tr>
+                       <td><%=Report.response_rf_1[i].response_1%></td>
+                       <td> <%=Report.response_rf_1[i].rf1%> </td>
+                       </tr>
+                        <% } %>   
+   
+    </tbody>
+    </table>  
+    </div>
+    <div class="col">
+    <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+    <h3> Question 2: <%= Report.q2 %> </h3>
+    <th scope ="col">Response</th>
+    <th scope = "col">Number of Responses</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <% for (let i=0; i<Report.response_rf_2.length; i++) {%>
+    <tr>
+                       <td><%=Report.response_rf_2[i].response_2%></td>
+                       <td> <%=Report.response_rf_2[i].rf2%> </td>
+                       </tr>
+                        <% } %>   
+    
+    </tbody>
+    </table> 
+    </div>
+    <div class="col">
+     <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+    <h3> Question 3: <%= Report.q3 %> </h3>
+    <th scope ="col">Response</th>
+    <th scope = "col">Number of Responses</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <% for (let i=0; i<Report.response_rf_3.length; i++) {%>
+    <tr>
+                       <td><%=Report.response_rf_3[i].response_3%></td>
+                       <td> <%=Report.response_rf_3[i].rf3%> </td>
+                       </tr>
+                        <% } %>   
+    
+    </tbody>
+    </table> 
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col">
+       <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+    <h3> Question 4: <%= Report.q4 %> </h3>
+    <th scope ="col">Response</th>
+    <th scope = "col">Number of Responses</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <% for (let i=0; i<Report.response_rf_4.length; i++) {%>
+    <tr>
+                       <td><%=Report.response_rf_4[i].response_4%></td>
+                       <td> <%=Report.response_rf_4[i].rf4%> </td>
+                       </tr>
+                        <% } %>   
+    
+    </tbody>
+    </table> 
+    </div>
+    <div class="col">
+    <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+    <h3> Question 5: <%= Report.q5 %> </h3>
+    <th scope ="col">Response</th>
+    <th scope = "col">Number of Responses</th>
+    </tr>
+    </thead>
+    <tbody>
+   
+    <% for (let i=0; i<Report.response_rf_5.length; i++) {%>
+     <tr>
+                       <td><%=Report.response_rf_5[i].response_5%></td>
+                       <td> <%=Report.response_rf_5[i].rf5%> </td>
+                        </tr>
+                        <% } %>   
+   
+    </tbody>
+    </table> 
+    </div>
+  </div>
+  </div>
+</div>
+</main><br><br>
+
+        <%- include ('../partials/bottom-nav.ejs') %>
+        <%- include ('../partials/footer.ejs') %>

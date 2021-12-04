@@ -80,10 +80,9 @@ Description: Survey web application that has full CRUD functionality using Expre
                                         <%= MySurveys[count].response1.length %>
                                     </td>
                                      <td class="text-center col-1">
-                                        <!-- href="/survey-list/statistics/<%= MySurveys[count]._id %>" --> <a  class="btn btn-success btn-sm"> 
-                                        <i class="fas fa-chart-bar"></i> Statistics</a>
+                                        <a href="/survey-list/report/<%= MySurveys[count]._id %>"  class="btn btn-success btn-sm"> 
+                                            <i class="fas fa-chart-bar"></i> Statistics</a>
                                     </td>
-                                    
                                     <td class="text-center col-1">
                                         <a href="/survey-list/edit/<%= MySurveys[count]._id %>" class="btn btn-primary btn-sm">
                                         <i class="fas fa-pencil-alt"></i> <br>Edit Survey</a>
