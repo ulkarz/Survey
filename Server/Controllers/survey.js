@@ -72,7 +72,7 @@ module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
 
         "name": req.body.name,
-        "owner": user.displayName,
+        "owner": req.body.owner,
         "startDate": req.body.startDate,
         "endDate": req.body.endDate,
         user: req.user,
@@ -207,15 +207,13 @@ module.exports.displaySurveyReport=(req, res, next) => {
                 }else{
                   Survey.findById(id, (err, report) => {
                       //report.forEach(report => {
-                      console.log(report);
+                     // console.log(report);
                   res.render('contents/report', { title: 'Report', Report: report, displayName: req.user ? req.user.displayName : '',});
-  
           });
-      }
-  })}})}})
+        }})
+    }})}})
   }})
-}})
-}
+}})}
 
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;

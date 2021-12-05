@@ -29,9 +29,9 @@ Description: Survey web application that has full CRUD functionality using Expre
                             <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Survey Name" name="name" value="<%= survey.name%>" required>
                         </div>
 
-                        <div class="form-group mb-1">
+                         <div class="form-group">
                             <label for="ownerTextField">Owner</label>
-                            <input type="text" class="form-control" id="ownerTextField" placeholder="Enter the Owner's Name" name="owner" value="<%= survey.owner%>" required>
+                            <input type="text" class="form-control" id="ownerTextField" value="<%= displayName %>" readonly>
                         </div>
 
                         <div class="form-group col-md-3 mb-1">
