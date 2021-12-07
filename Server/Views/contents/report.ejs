@@ -1,124 +1,281 @@
 <%- include ('../partials/header.ejs') %>
 <%- include ('../partials/main-nav.ejs') %>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Main Content -->
         <div class="container">
-
-        <div class="d-flex justify-content-center">
-        <h1>Survey Name: <%= Report.name %> </h1> 
-        </div>
         
+          <div class="d-flex justify-content-center">
+            <h1>Survey Name: <%= Report.name %> </h1> 
+           </div>
   <div class="row align-items-start">
     <div class="col">
-    <table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-    <h3> Question 1: <%= Report.q1 %> </h3>
-    <th scope ="col">Response</th>
-    <th scope = "col">Number of Responses</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-    <% for (let i=0; i<Report.response_rf_1.length; i++) {%>
-    <tr>
-                       <td><%=Report.response_rf_1[i].response_1%></td>
-                       <td> <%=Report.response_rf_1[i].rf1%> </td>
-                       </tr>
-                        <% } %>   
-   
-    </tbody>
-    </table>  
-    </div>
-    <div class="col">
-    <table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-    <h3> Question 2: <%= Report.q2 %> </h3>
-    <th scope ="col">Response</th>
-    <th scope = "col">Number of Responses</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-    <% for (let i=0; i<Report.response_rf_2.length; i++) {%>
-    <tr>
-                       <td><%=Report.response_rf_2[i].response_2%></td>
-                       <td> <%=Report.response_rf_2[i].rf2%> </td>
-                       </tr>
-                        <% } %>   
-    
-    </tbody>
-    </table> 
-    </div>
-    <div class="col">
-     <table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-    <h3> Question 3: <%= Report.q3 %> </h3>
-    <th scope ="col">Response</th>
-    <th scope = "col">Number of Responses</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-    <% for (let i=0; i<Report.response_rf_3.length; i++) {%>
-    <tr>
-                       <td><%=Report.response_rf_3[i].response_3%></td>
-                       <td> <%=Report.response_rf_3[i].rf3%> </td>
-                       </tr>
-                        <% } %>   
-    
-    </tbody>
-    </table> 
-    </div>
-  </div>
-  <div class="row align-items-center">
-    <div class="col">
-       <table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-    <h3> Question 4: <%= Report.q4 %> </h3>
-    <th scope ="col">Response</th>
-    <th scope = "col">Number of Responses</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-    <% for (let i=0; i<Report.response_rf_4.length; i++) {%>
-    <tr>
-                       <td><%=Report.response_rf_4[i].response_4%></td>
-                       <td> <%=Report.response_rf_4[i].rf4%> </td>
-                       </tr>
-                        <% } %>   
-    
-    </tbody>
-    </table> 
-    </div>
-    <div class="col">
-    <table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-    <h3> Question 5: <%= Report.q5 %> </h3>
-    <th scope ="col">Response</th>
-    <th scope = "col">Number of Responses</th>
-    </tr>
-    </thead>
-    <tbody>
-   
-    <% for (let i=0; i<Report.response_rf_5.length; i++) {%>
-     <tr>
-                       <td><%=Report.response_rf_5[i].response_5%></td>
-                       <td> <%=Report.response_rf_5[i].rf5%> </td>
-                        </tr>
-                        <% } %>   
-   
-    </tbody>
-    </table> 
-    </div>
-  </div>
-  </div>
-</div>
-</main><br><br>
+      
+        <canvas id="myChart_1"></canvas>
 
-        <%- include ('../partials/bottom-nav.ejs') %>
+        <% const data_1=[]; %> 
+        <% const r1q1ans1= Report.response_rf_1.find(rf_first => rf_first.response_1 == Report.q1ans1)%>
+        <% if (r1q1ans1) { %> 
+          <%data_1[0]=r1q1ans1.rf1 %>
+          <%}else{%>
+            <%data_1[0]=0 %>
+          <% } %>
+          
+          <% const r1q1ans2= Report.response_rf_1.find(rf_first => rf_first.response_1 == Report.q1ans2)%>
+          <% if (r1q1ans2) { %> 
+            <%data_1[1]=r1q1ans2.rf1 %>
+            <%}else{%>
+              <%data_1[1]=0 %>
+          <% } %>
+    
+       <% const r1q1ans3= Report.response_rf_1.find(rf_first => rf_first.response_1 == Report.q1ans3)%>
+          <% if (r1q1ans3) { %> 
+            <%data_1[2]=r1q1ans3.rf1 %>
+            <%}else{%>
+              <%data_1[2]=0 %>
+          <% } %>
+    
+          <% const r1q1ans4= Report.response_rf_1.find(rf_first => rf_first.response_1 == Report.q1ans4)%>
+              <% if (r1q1ans4) { %> 
+                <%data_1[3]=r1q1ans4.rf1 %>
+                <%}else{%>
+                  <%data_1[3]=0 %>
+              <% } %>
+            </div>
+             <div class="col">
+        <canvas id="myChart_2"></canvas>
+        <% const data_2=[]; %> 
+        <% const r2q2ans1= Report.response_rf_2.find(rf_second => rf_second.response_2 == Report.q2ans1)%>
+        <% if (r2q2ans1) { %> 
+          <%data_2[0]=r2q2ans1.rf2 %>
+          <%}else{%>
+            <%data_2[0]=0 %>
+          <% } %>
+          
+          <% const r2q2ans2= Report.response_rf_2.find(rf_second => rf_second.response_2 == Report.q2ans2)%>
+        <% if (r2q2ans2) { %> 
+          <%data_2[1]=r2q2ans2.rf2 %>
+          <%}else{%>
+            <%data_2[1]=0 %>
+          <% } %>
+          <% const r2q2ans3= Report.response_rf_2.find(rf_second => rf_second.response_2 == Report.q2ans3)%>
+          <% if (r2q2ans3) { %> 
+            <%data_2[2]=r2q2ans3.rf2 %>
+            <%}else{%>
+              <%data_2[2]=0 %>
+            <% } %>
+            <% const r2q2ans4= Report.response_rf_2.find(rf_second => rf_second.response_2 == Report.q2ans4)%>
+            <% if (r2q2ans4) { %> 
+              <%data_2[3]=r2q2ans4.rf2 %>
+              <%}else{%>
+                <%data_2[3]=0 %>
+              <% } %>
+            </div>
+          </div>
+          <div class="row align-items-start">
+          <div class="col">
+          <canvas id="myChart_3"></canvas>
+          <% const data_3=[]; %> 
+          <% const r3q3ans1= Report.response_rf_3.find(rf_third => rf_third.response_3 == Report.q3ans1)%>
+          <% if (r3q3ans1) { %> 
+            <%data_3[0]=r3q3ans1.rf3 %>
+            <%}else{%>
+              <%data_3[0]=0 %>
+            <% } %>
+
+            <% const r3q3ans2= Report.response_rf_3.find(rf_third => rf_third.response_3 == Report.q3ans2)%>
+            <% if (r3q3ans2) { %> 
+              <%data_3[1]=r3q3ans2.rf3 %>
+              <%}else{%>
+                <%data_3[1]=0 %>
+              <% } %>
+
+              <% const r3q3ans3= Report.response_rf_3.find(rf_third => rf_third.response_3 == Report.q3ans3)%>
+              <% if (r3q3ans3) { %> 
+                <%data_3[2]=r3q3ans3.rf3 %>
+                <%}else{%>
+                  <%data_3[2]=0 %>
+                <% } %>
+                
+                <% const r3q3ans4= Report.response_rf_3.find(rf_third => rf_third.response_3 == Report.q3ans4)%>
+                <% if (r3q3ans4) { %> 
+                  <%data_3[3]=r3q3ans4.rf3 %>
+                  <%}else{%>
+                    <%data_3[2]=0 %>
+                  <% } %>
+          </div>
+                
+        </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <canvas id="myChart_4"></canvas>
+            <% const data_4=[]; %> 
+            <% const r4q4ans1_true= Report.response_rf_4.find(rf_fourth => rf_fourth.response_4 == 'true')%>
+            <% if (r4q4ans1_true) { %> 
+              <%data_4[0]=r4q4ans1_true.rf4%>
+              <%}else{%>
+                <%data_4[0]=0 %>
+              <% } %>
+              <% const r4q4ans2_false= Report.response_rf_4.find(rf_fourth => rf_fourth.response_4 == 'false')%>
+              <% if (r4q4ans2_false) { %> 
+                <%data_4[1]=r4q4ans2_false.rf4%>
+                <%}else{%>
+                  <%data_4[1]=0 %>
+                <% } %>
+              </div>
+              <div class="col">
+            <canvas id="myChart_5"></canvas>
+            <% const data_5=[]; %> 
+            <% const r5q5ans1_true= Report.response_rf_5.find(rf_fifth => rf_fifth.response_5 == 'true')%>
+            <% if (r5q5ans1_true) { %> 
+              <%data_5[0]=r5q5ans1_true.rf5%>
+              <%}else{%>
+                <%data_5[0]=0 %>
+              <% } %>
+
+              <% const r5q5ans2_false= Report.response_rf_5.find(rf_fifth => rf_fifth.response_5 == 'false')%>
+              <% if (r5q5ans2_false) { %> 
+                <%data_5[1]=r5q5ans2_false.rf5%>
+                <%}else{%>
+                  <%data_5[1]=0 %>
+                <% } %>
+          </div>
+        </div>
+    </div>
+        <script>
+          // === include 'setup' then 'config' above ===
+          const labels1 = [
+  '<%= Report.q1ans1 %>',
+  '<%=Report.q1ans2 %>',
+  '<%=Report.q1ans3 %>',
+  '<%=Report.q1ans4 %>',
+  
+];           const labels2 = [
+  '<%= Report.q2ans1 %>',
+  '<%=Report.q2ans2 %>',
+  '<%=Report.q2ans3 %>',
+  '<%=Report.q2ans4 %>',
+  
+];
+const labels3 = [
+  '<%= Report.q3ans1 %>',
+  '<%=Report.q3ans2 %>',
+  '<%=Report.q3ans3 %>',
+  '<%=Report.q3ans4 %>',
+  
+];
+const labels4 = [
+  'True',
+  'False '
+];
+const labels5 = [
+  'True',
+  'False '
+];
+const data1 = {
+  labels: labels1,
+  datasets: [{
+    label: '<%= Report.q1 %> ',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: ['<%=data_1[0]%>', '<%=data_1[1]%>', '<%=data_1[2]%>', '<%=data_1[3]%>' ],
+  }]
+};
+const data2 = {
+  labels: labels2,
+  datasets: [{
+    label: '<%= Report.q2 %> ',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: ['<%=data_2[0]%>', '<%=data_2[1]%>', '<%=data_2[2]%>', '<%=data_2[3]%>' ],
+  }]
+};
+const data3 = {
+  labels: labels3,
+  datasets: [{
+    label: '<%= Report.q3 %> ',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: ['<%=data_3[0]%>', '<%=data_3[1]%>', '<%=data_3[2]%>', '<%=data_3[3]%>' ],
+  }]
+};
+const data4 = {
+  labels: labels4,
+  datasets: [{
+    label: '<%= Report.q4 %> ',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: ['<%=data_4[0]%>', '<%=data_4[1]%>' ],
+  }]
+};
+const data5 = {
+  labels: labels5,
+  datasets: [{
+    label: '<%= Report.q5 %> ',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: ['<%=data_5[0]%>', '<%=data_5[1]%>' ],
+  }]
+};
+const config1 = {
+          type: 'bar',
+          data: data1,
+          options: {
+            indexAxis: 'x',
+          }
+          };
+          const config2 = {
+          type: 'bar',
+          data: data2,
+          options: {
+            indexAxis: 'x',
+          }
+          };
+          const config3 = {
+          type: 'bar',
+          data: data3,
+          options: {
+            indexAxis: 'x',
+          }
+          };
+          const config4 = {
+          type: 'bar',
+          data: data4,
+          options: {
+            indexAxis: 'x',
+          }
+          };
+          const config5 = {
+          type: 'bar',
+          data: data5,
+          options: {
+            indexAxis: 'x',
+          }
+          };
+          const myChart_1 = new Chart(
+            document.getElementById('myChart_1'),
+            config1,
+          );
+            // === include 'setup' then 'config' above ===
+        
+          const myChart_2 = new Chart(
+            document.getElementById('myChart_2'),
+            config2
+          );
+          const myChart_3 = new Chart(
+            document.getElementById('myChart_3'),
+            config3
+          );
+          const myChart_4 = new Chart(
+            document.getElementById('myChart_4'),
+            config4
+          );
+          const myChart_5 = new Chart(
+            document.getElementById('myChart_5'),
+            config5
+          );
+        </script>
+
+
+</main><br><br>
+        <!-- include ('../partials/bottom-nav.ejs') -->
         <%- include ('../partials/footer.ejs') %>
