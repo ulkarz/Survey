@@ -25,7 +25,7 @@ Description: Survey web application that has full CRUD functionality using Expre
   <% if(responseSaved.length > 0) {%>
   <div class="alert alert-success"> <%=responseSaved%></div>
   <% } %>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="offset-md-1 col-md-10">
                     <h1>
                         <%= title %>
@@ -36,44 +36,27 @@ Description: Survey web application that has full CRUD functionality using Expre
                     <table class="table table-bordered table-striped table-hover">
                         <!-- Header Row-->
                         <tr class="d-flex">
-                                <th class="text-center col-2">Name</th>
-                                <th class="text-center col-4">Start Date</th>
+                                <th class="text-center col-4">Name</th>
                                 <th class="text-center col-4">End Date</th>
-                                <th class="text-center col-2">Action</th>
+                                <th class="text-center col-4">Action</th>
                         </tr>
 
                         <!-- Repeatable Template Row -->
 
                         <% for(let count = 0; count < SurveyList.length; count++) { %>
                             <tr class="d-flex">
-                                    <td class="text-center col-2">
+                                <% if (SurveyList[count].startDate < Date.now() && SurveyList[count].endDate >= Date.now()) {%>
+                                    <td class="text-center col-4">
                                         <%= SurveyList[count].name %>
                                     </td>
-                                    <% if (SurveyList[count].startDate < Date.now()) {%>
-                                    <td class="text-center col-4">
-                                        Started from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
-                                    </td>
-                                    <% }%>
-                                    <% if (SurveyList[count].startDate > Date.now()) {%>
-                                    <td class="text-center col-4">
-                                        Starts from <%= SurveyList[count].startDate.toISOString().split('T')[0] %>
-                                    </td>
-                                    <% }%>
-                                    <% if (SurveyList[count].endDate < Date.now()) {%>
-
-                                    <td class="text-center col-4">
-                                       Survey expired <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
-                                    </td>
-                                    <% }%>
-                                    <% if (SurveyList[count].endDate >= Date.now()) {%>
-                                    <td class="text-center col-4">
+                                     <td class="text-center col-4">
                                        Available until <%= SurveyList[count].endDate.toISOString().split('T')[0] %>
                                     </td>
-                                    <%}%>
-                                    <td class="text-center col-2">
+                                    <td class="text-center col-4">
                                         <a href="/survey-list/respond/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
                                         <i class="fas fa-poll"></i> Respond Survey</a>
                                     </td>
+                                <% } %>  
                             </tr>
                         <% } %>
                     </table>
