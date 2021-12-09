@@ -14,13 +14,16 @@ Description: Survey web application that has full CRUD functionality using Expre
 
 <%- include ('../partials/header.ejs') %>
     <%- include ('../partials/main-nav.ejs') %>
+    <div class="banner">
+        <div class="banner-create">Create Survey</div>
+        </div>
 
         <!-- Content for the Add page -->
         <div class="container">
             <div class="row">
                 <div class="offset-md-3 col-md-6">
                     <h1>
-                        <%= title %>
+                      
                     </h1>
 
                     <form class="form" method="POST">
@@ -39,7 +42,7 @@ Description: Survey web application that has full CRUD functionality using Expre
                             this.setAttribute(
                             "data-date",
                             moment(this.value, "YYYY-MM-DD").local().
-                            .format( this.getAttribute("data-date-format") )
+                            format( this.getAttribute("data-date-format") )
                             )
                             }).trigger("change")
 

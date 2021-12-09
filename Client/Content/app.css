@@ -25,3 +25,48 @@ body{
 .comments-max-width{
     max-width: 150px;
 }
+.banner{
+    background-color: #253742;
+    width: 1800px;
+    height: 60px;;
+
+}
+.banner-1{
+    font-size:250%;
+    position: relative;
+    left: 640px;
+    color: ivory;
+
+}
+.banner-2{
+    font-size:250%;
+    position: relative;
+    left: 370px;
+    color: ivory;
+}
+
+.banner-create{
+    font-size:250%;
+    position: relative;
+    left: 520px;
+    color: ivory;
+}
+.banner-mysurvey {
+    font-size:250%;
+    position: relative;
+    left: 320px;
+    color: ivory;
+}
+.banner-response {
+    font-size:250%;
+    position: relative;
+    left: 570px;
+    color: ivory;
+}
+
+
+*{
+    font-family: 'Readex Pro', sans-serif
+}
+
+
