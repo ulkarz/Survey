@@ -1,72 +1,87 @@
-body{
+body {
     font-size: .9em;
+    background-color: gray;
 }
 
-.logo{
+.card {
+    border: none;
+}
+
+.logo {
     width: 60px;
     height: auto;
 }
 
-.testimonial-image{
+.testimonial-image {
     width: 340px;
     height: auto;
 }
 
-.survey-img{
+.survey-img {
     width: 300px;
     height: auto;
 }
 
-.nav-text{
+.popup:hover {
+    position: relative;
+    top: -25px;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 999;
+}
+
+.nav-text {
     font-size: .8em;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.comments-max-width{
+.comments-max-width {
     max-width: 150px;
 }
-.banner{
+
+.banner {
     background-color: #253742;
     width: 1800px;
-    height: 60px;;
-
+    height: 60px;
+    ;
 }
-.banner-1{
-    font-size:250%;
+
+.banner-1 {
+    font-size: 250%;
     position: relative;
     left: 640px;
     color: ivory;
-
 }
-.banner-2{
-    font-size:250%;
+
+.banner-2 {
+    font-size: 250%;
     position: relative;
     left: 370px;
     color: ivory;
 }
 
-.banner-create{
-    font-size:250%;
+.banner-create {
+    font-size: 250%;
     position: relative;
     left: 520px;
     color: ivory;
 }
+
 .banner-mysurvey {
-    font-size:250%;
+    font-size: 250%;
     position: relative;
     left: 320px;
     color: ivory;
 }
+
 .banner-response {
-    font-size:250%;
+    font-size: 250%;
     position: relative;
     left: 570px;
     color: ivory;
 }
 
-
-*{
+* {
     font-family: 'Readex Pro', sans-serif
 }
-
-
